@@ -1,13 +1,26 @@
 {
   "name": "gulpbrowserifyserver",
-  "version": "0.2.0",
-  "description": "gulp browserify server",
-  "scripts": {
-    "start": "gulp build | node server.js"
-  },
+  "version": "0.3.0",
   "author": "peteplays",
+  "description": "gulp browserify server",
+  "keywords": [
+    "peteplays",
+    "gulp",
+    "browserify",
+    "express",
+    "live reload"
+   ],
+  "scripts": {
+    "start": "gulp deploy | node server.js",
+    "test": "gulp"
+  },
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/peteplays/theDeal"
+    },
   "license": "MIT",
   "devDependencies": {
+    "browser-sync": "^2.11.1",
     "express": "^4.13.4",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",

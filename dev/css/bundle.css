@@ -1,7 +1,9 @@
 body {
   background-color: #069;
 }
-body h1 {
+body h1,
+body h2,
+body h3 {
   text-align: center;
   color: #eee;
 }
