@@ -2,7 +2,6 @@ var express = require('express');
 var app = express();
 
 var port = '7777';
-var dev_or_prod = '';
 
 console.log('Server running at http://localhost:'+port);
 
@@ -11,7 +10,6 @@ app.use(express.static('dev'));
 app.use(express.static('media'));
 
 app.get('/',function(req,res){
-    console.log(req.originalUrl);
     res.sendFile('/index.html');
 });
 
