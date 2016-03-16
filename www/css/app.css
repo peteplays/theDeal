@@ -5,3 +5,8 @@ body h1 {
   text-align: center;
   color: #eee;
 }
+body img {
+  margin: 0 auto;
+  display: block;
+  width: 130px;
+}
