@@ -2,12 +2,16 @@ var express = require('express');
 var app = express();
 
 var port = '7777';
+var dev_or_prod = '';
 
-console.log('open at http://localhost:'+port)
+console.log('Server running at http://localhost:'+port);
 
-app.use(express.static('www'));
+app.use(express.static('dev'));
+//app.use(express.static('prod'));
+app.use(express.static('media'));
 
-app.get('/',function(req,res){       
+app.get('/',function(req,res){
+    console.log(req.originalUrl);
     res.sendFile('/index.html');
 });
 

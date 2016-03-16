@@ -1,5 +1,8 @@
 # theDeal
 
+## Install
+`npm i`
+
 ## To Run
 `npm start`
 
@@ -11,7 +14,7 @@
 - browserify
 
 ## Usage
-edit files in `app` and `js` and `css` will be bundled into `www` to serve 
+edit files in `app` and `js` and `css` will be bundled into `www` to serve
 
 add images in www/images
 
