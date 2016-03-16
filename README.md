@@ -3,7 +3,7 @@
 ## To Run
 `npm start`
 
-## Componants
+## Components
 - express
 
 - gulp
