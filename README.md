@@ -11,5 +11,7 @@
 - browserify
 
 ## Usage
-edit files in `app` and ``js`` and ``css`` will be bundles into `www` to serve 
+edit files in `app` and `js` and `css` will be bundled into `www` to serve 
+
+edit index.html in www
 
