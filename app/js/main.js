@@ -12,3 +12,4 @@ var theApp = angular.module('theApp', ['ui.bootstrap', 'ngAnimate'])
         $scope.hello = 'Hello From Angular';
         $scope.isCollapsed = true;
     });
+

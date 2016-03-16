@@ -14,7 +14,9 @@ var theApp = angular.module('theApp', ['ui.bootstrap', 'ngAnimate'])
         $scope.hello = 'Hello From Angular';
         $scope.isCollapsed = true;
     });
-}).call(this,require("rH1JPG"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_21b12cb6.js","/")
+
+
+}).call(this,require("rH1JPG"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_2dc470af.js","/")
 },{"angular-animate/angular-animate.min":2,"angular-ui-bootstrap/dist/ui-bootstrap-tpls":3,"angular/angular.min":4,"buffer":6,"rH1JPG":8}],2:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /*

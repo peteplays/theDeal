@@ -18,7 +18,7 @@ gulp.task('css', function() {
 });
 
 gulp.task('js', function() {
-  return gulp.src('app/js/main.js')
+  return gulp.src('app/js/*.js')
     .pipe(browserify({
       insertGlobals: true
     }))
@@ -60,5 +60,4 @@ gulp.task('reload-js', ['js'], browserSync.reload);
 //-- run tasks
 gulp.task('default', ['uglify', 'minify', 'live-reload']);
 gulp.task('build', ['uglify', 'minify']);
-gulp.task('deploy', ['uglify', 'minify']);
 

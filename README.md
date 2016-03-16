@@ -22,6 +22,8 @@ Severed at `http://localhost:5555`
 
 - browserify
 
+- mongo
+
 ## Usage
 `npm start` , `gulp` ,  or `npm test` will build your `bundled.min.css` and `bundled.min.js` in `prod` -> `css` and `js` and build your `bundled.css` and `bundled.js` in `dev` -> `css` and `js`
 
