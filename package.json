@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "prestart": "gulp local",
-    "start": "node server.js",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
