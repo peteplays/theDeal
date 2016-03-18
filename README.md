@@ -47,16 +47,19 @@ add images in `media/images/`
 Start mongo
 
 insert the following objects into mongo
+
 `{
     "name" : "pete",
     "color" : "blue",
     "fun" : "yes"
 }`
+
 `{
     "name" : "mary",
     "color" : "purple",
     "fun" : "yes"
 }`
+
 `{
     "name" : "paul",
     "color" : "red",
