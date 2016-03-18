@@ -5,8 +5,10 @@ Clone repo
 
 `npm i`
 
+`gulp build`
+
 ## Development Locally
-`gulp` or `npm test`
+`gulp` or `npm start`
 
 This will open a browser window with live reloads
 
@@ -22,16 +24,44 @@ Severed at `http://localhost:5555`
 
 - browserify
 
+- mongo
+
+- boostrap
+
+- font-awesome
+
 ## Usage
-`npm start` , `gulp` ,  or `npm test` will build your `bundled.min.css` and `bundled.min.js` in `prod` -> `css` and `js` and build your `bundled.css` and `bundled.js` in `dev` -> `css` and `js`
+`gulp build` will build `bundled.css` and `bundled.js`, `bundled.min.css` and `bundled.min.js`, & add the bootstrap and font awesome icons to `fonts` _run this first_
+
+`gulp` will build your  `bundled.css` and `bundled.js` in `www` -> `css` and `js` and run live reloads
+
+`npm start` or `gulp local` will build your `bundled.min.css` and `bundled.min.js` -> `css` and `js`
+
+`npm start` with mongo running will give you access to the mongo
 
 edit files in `app` -> `js` and `css` they will be bundled into `prod` and `dev`
 
-`dev` contains none minified files
-
-`prod` contains minified files
-
 add images in `media/images/`
 
-edit `index.html` in `prod` and `dev` the are independent from each other ___TODO create master index___
+### Mongo
+Start mongo
+
+insert the following objects into mongo
+```{
+    "name" : "pete",
+    "color" : "blue",
+    "fun" : "yes"
+}
+{
+    "name" : "mary",
+    "color" : "purple",
+    "fun" : "yes"
+}
+{
+    "name" : "paul",
+    "color" : "red",
+    "fun" : "no"
+}```
+
+Run `npm start`
 

@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Deal Template</title>
+    <link rel="stylesheet" href="css/bundle.css">
+  </head>
+  <body ng-app="theApp">
+
+    <h1>PetePlays</h1>
+
+    <img src="images/petelogo.png" alt="peteplays logo">
+
+    <h2>This is the <kbd>www/</kbd> <code>index.html</code></h2>
+
+    <h3 id="helloFromJs"></h3>
+
+    <div class="text-center the-icons">
+      <i class="fa fa-fighter-jet"></i>
+      <i class="fa fa-ellipsis-h"></i>
+      <i class="fa fa-fort-awesome"></i>
+      <i class="glyphicon glyphicon-music"></i>
+      <i class="glyphicon glyphicon-send"></i>
+    </div>
+
+    <div ng-controller="template">
+      <h3>{{hello}}</h3>
+
+      <div class="row">
+        <div class="col-sm-offset-5 col-sm-2 helloABS">
+          <button type="button" class="btn btn-default btn-block" ng-click="isCollapsed = !isCollapsed">Hello From...</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-offset-4 col-sm-4">
+          <div uib-collapse="isCollapsed">
+            <div class="well well text-center text-warning">
+              <strong>Angular UI Bootstrap</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row db-list">
+          <div class="col-sm-offset-1 col-sm-1">
+            <button ng-click="getData();" class="btn btn-warning">Try a Get</button>
+          </div>
+          <div class="col-sm-2">
+            <ul>
+              <li ng-repeat="val in outputGetData track by $index">{{val.name}}</li>
+            </ul>
+          </div>
+          <div class="col-sm-1">
+            <button ng-click="postData(postNameVal);" class="btn btn-warning">Try a Get</button>
+          </div>
+          <div class="col-sm-1">
+            <input type="text" ng-model="postNameVal" class="form-control">
+          </div>
+          <div class="col-sm-4">
+            <ul ng-hide="outputPostData == 'No Search Matched'">
+              <li ng-repeat="val in outputPostData track by $index">
+                <h4>{{val.name}} likes {{val.color}}. Fun? {{val.fun}}.</h4>
+              </li>
+            </ul>
+            <h4 ng-show="outputPostData == 'No Search Matched'">{{outputPostData}}</h4>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- ang template -->
+
+    <script src="js/bundle.js"></script>
+  </body>
+</html>
