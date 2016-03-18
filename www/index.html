@@ -17,6 +17,14 @@
 
     <h3 id="helloFromJs"></h3>
 
+    <div class="text-center the-icons">
+      <i class="fa fa-fighter-jet"></i>
+      <i class="fa fa-ellipsis-h"></i>
+      <i class="fa fa-fort-awesome"></i>
+      <i class="glyphicon glyphicon-music"></i>
+      <i class="glyphicon glyphicon-send"></i>
+    </div>
+
     <div ng-controller="template">
       <h3>{{hello}}</h3>
 
@@ -31,6 +39,33 @@
             <div class="well well text-center text-warning">
               <strong>Angular UI Bootstrap</strong>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row db-list">
+          <div class="col-sm-offset-1 col-sm-1">
+            <button ng-click="getData();" class="btn btn-warning">Try a Get</button>
+          </div>
+          <div class="col-sm-2">
+            <ul>
+              <li ng-repeat="val in outputGetData track by $index">{{val.name}}</li>
+            </ul>
+          </div>
+          <div class="col-sm-1">
+            <button ng-click="postData(postNameVal);" class="btn btn-warning">Try a Get</button>
+          </div>
+          <div class="col-sm-1">
+            <input type="text" ng-model="postNameVal" class="form-control">
+          </div>
+          <div class="col-sm-4">
+            <ul ng-hide="outputPostData == 'No Search Matched'">
+              <li ng-repeat="val in outputPostData track by $index">
+                <h4>{{val.name}} likes {{val.color}}. Fun? {{val.fun}}.</h4>
+              </li>
+            </ul>
+            <h4 ng-show="outputPostData == 'No Search Matched'">{{outputPostData}}</h4>
           </div>
         </div>
       </div>

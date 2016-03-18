@@ -7,7 +7,7 @@ var gulp        = require('gulp'),
     minifyCSS   = require('gulp-minify-css'),
     browserSync = require('browser-sync').create();
 
-//--build css and js
+//-- build css and js
 gulp.task('css', function() {
   return gulp.src('app/app.less')
     .pipe(less())
@@ -18,13 +18,24 @@ gulp.task('css', function() {
 });
 
 gulp.task('js', function() {
-  return gulp.src('app/js/*.js')
+  return gulp.src('app/app.js')
     .pipe(browserify({
       insertGlobals: true
     }))
     .pipe(rename('bundle.js'))
     .pipe(gulp.dest('www/js'))
     .pipe(browserSync.stream());
+});
+
+//-- get fa and bootstrap icons
+gulp.task('fa-icons', function() { 
+  return gulp.src('node_modules/font-awesome/fonts/**.*') 
+    .pipe(gulp.dest('www/fonts')); 
+});
+
+gulp.task('bs-icons', function() { 
+  return gulp.src('node_modules/bootstrap/fonts/**.*') 
+    .pipe(gulp.dest('www/fonts')); 
 });
 
 //-- minify css and uglify js
@@ -42,7 +53,7 @@ gulp.task('uglify', ['js'], function() {
     .pipe(gulp.dest('www/js'));
 });
 
-//--live reloading
+//-- live reloading
 gulp.task('live-reload', function() {
   browserSync.init({
     port: 7777,
@@ -58,6 +69,7 @@ gulp.task('live-reload', function() {
 gulp.task('reload-js', ['js'], browserSync.reload);
 
 //-- run tasks
-gulp.task('default', ['uglify', 'minify', 'live-reload']);
-gulp.task('build', ['uglify', 'minify']);
+gulp.task('default', ['js', 'css', 'live-reload']);
+gulp.task('local', ['uglify', 'minify']);
+gulp.task('build', ['uglify', 'fa-icons', 'bs-icons', 'minify']);
 
