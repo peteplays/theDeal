@@ -26,12 +26,12 @@ Severed at `http://localhost:5555`
 
 - mongo
 
-- bootstrap
+- angular-ui-bootstrap
 
 - font-awesome
 
 ## Usage
-`gulp build` will build `bundled.css` and `bundled.js`, `bundled.min.css` and `bundled.min.js`, & add the bootstrap and font awesome icons to `fonts` _run this first_
+`gulp build` will build `bundled.css` and `bundled.js`, `bundled.min.css` and `bundled.min.js`, & add the bootstrap and font awesome icons to `fonts` _*run this first*_
 
 `gulp` will build your `bundled.css` and `bundled.js` in `www` -> `css` and `js` and run live reloads
 
