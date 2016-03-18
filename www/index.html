@@ -53,14 +53,14 @@
               <li ng-repeat="val in outputGetData track by $index">{{val.name}}</li>
             </ul>
           </div>
-          <div class="col-sm-1">
+          <div class="col-sm-2">
             <button ng-click="postData(postNameVal);" class="btn btn-warning">Try a Get</button>
           </div>
-          <div class="col-sm-1">
+          <div class="col-sm-2">
             <input type="text" ng-model="postNameVal" class="form-control">
           </div>
           <div class="col-sm-4">
-            <ul ng-hide="outputPostData == 'No Search Matched'">
+            <ul >
               <li ng-repeat="val in outputPostData track by $index">
                 <h4>{{val.name}} likes {{val.color}}. Fun? {{val.fun}}.</h4>
               </li>

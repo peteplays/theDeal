@@ -24,10 +24,12 @@ app.get('/dbGet', function(req,res) {
         collection  = 'documents';
     MongoClient.connect(mongoUrl+db, function(err, db) {
         if (err) {
+        	console.log(err);
             throw err;
         }
         db.collection(collection).find().toArray(function(err, result) {
             if (err) {
+            	console.log(err);
                 throw err;
             }
             res.json(result);
@@ -39,15 +41,19 @@ app.post('/dbPost', function(req,res) {
     var db          = 'myproject',
         collection  = 'documents',
         search      = JSON.parse('{"name":"'+req.body.name+'"}');
+        console.log(req.body.name);
 
     MongoClient.connect(mongoUrl+db, function(err, db) {
         if (err) {
+        	console.log(err);
             throw err;
         }
         db.collection(collection).find(search).toArray(function(err, result) {
             if (err) {
+            	console.log(err);
                 throw err;
             }
+            console.log(result);
             res.send(result);
         });
     });

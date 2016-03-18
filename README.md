@@ -26,16 +26,16 @@ Severed at `http://localhost:5555`
 
 - mongo
 
-- boostrap
+- bootstrap
 
 - font-awesome
 
 ## Usage
 `gulp build` will build `bundled.css` and `bundled.js`, `bundled.min.css` and `bundled.min.js`, & add the bootstrap and font awesome icons to `fonts` _run this first_
 
-`gulp` will build your  `bundled.css` and `bundled.js` in `www` -> `css` and `js` and run live reloads
+`gulp` will build your `bundled.css` and `bundled.js` in `www` -> `css` and `js` and run live reloads
 
-`npm start` or `gulp local` will build your `bundled.min.css` and `bundled.min.js` -> `css` and `js`
+`npm start` or `gulp local` will build your `bundled.css` and `bundled.js` -> `css` and `js`
 
 `npm start` with mongo running will give you access to the mongo
 
@@ -47,21 +47,21 @@ add images in `media/images/`
 Start mongo
 
 insert the following objects into mongo
-```{
+`{
     "name" : "pete",
     "color" : "blue",
     "fun" : "yes"
-}
-{
+}`
+`{
     "name" : "mary",
     "color" : "purple",
     "fun" : "yes"
-}
-{
+}`
+`{
     "name" : "paul",
     "color" : "red",
     "fun" : "no"
-}```
+}`
 
 Run `npm start`
 
