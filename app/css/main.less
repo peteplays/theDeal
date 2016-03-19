@@ -1,5 +1,8 @@
+@bg : #777;
+@bg-opacity: rgba(0, 68, 102, 0.43);
+@yellow-font: #EEDD5B;
 body {
-  background-color: #069;
+  background-color: @bg;
   background-image: url('../images/black-thread-light.png');
 }
 h1, h2, h3{
@@ -12,10 +15,17 @@ h3{
 		font-style: italic;
 	}
 }
+h4{
+	color: @yellow-font;
+}
 img{
   margin: 0 auto;
   display: block;
   width: 130px;
+}
+.well{
+  	background-color: @bg-opacity;
+  	color: @yellow-font;
 }
 .the-icons{
   font-size: 40px;
@@ -26,9 +36,16 @@ img{
   margin-bottom: 20px;
 }
 .db-list{
-  color: #EEDD5B;
   text-transform: capitalize;
+  margin-bottom: 15px;
   ul{
     list-style: none;
+    .list-inline{
+    	display: inline;
+    	&:before,
+    	&:after{
+    		content: ' - ';
+    	}
+    }
   }
 }

@@ -10,12 +10,13 @@ var theApp = angular.module('theApp', [
 ])
 .controller('template', require('./js/main.js'))
 ;
-}).call(this,require("pBGvAp"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_d070e76a.js","/")
+}).call(this,require("pBGvAp"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_eceb666e.js","/")
 },{"./js/main.js":2,"angular-animate/angular-animate.min":3,"angular-ui-bootstrap/dist/ui-bootstrap-tpls":4,"angular/angular.min":5,"buffer":7,"pBGvAp":9}],2:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 //@ngInject
 var _ = require('underscore');
 module.exports = ['$scope', '$http', function($scope, $http) {
+
     console.log('this is awesome!!!!!');
 
     var hi = document.getElementById('helloFromJs');
@@ -24,8 +25,26 @@ module.exports = ['$scope', '$http', function($scope, $http) {
     $scope.hello = 'Hello From Angular';
     $scope.isCollapsed = true;
 
-    $scope.getData = function() {
-        $http.get('/dbGet')
+    $scope.dbActive = false;
+
+    $scope.getDBCheck = function() {
+        $http.get('/dbCheck')
+            .then(function(response) {
+              	if(response.data.db == 'ok') { 
+               		$scope.dbActive = true;
+               		$scope.getDBCount();
+               	} else { 
+               		console.log(response.data); 
+               	} 
+            })
+            .catch(function(err) {
+                console.log(err);
+            });
+    };
+    $scope.getDBCheck();
+
+    $scope.getAllNames = function() {
+        $http.get('/dbGetAllNames')
             .then(function(response) {
                 $scope.outputGetData = response.data;
             })
@@ -34,15 +53,80 @@ module.exports = ['$scope', '$http', function($scope, $http) {
             });
     };
 
-    $scope.postData = function(name) {
+    $scope.getDBCount = function() {       
+        name = name.toLowerCase();
+        $http.get('/dbCount')
+            .then(function(response) {
+                $scope.outputDBCountRes = response.data;
+            })
+            .catch(function(err) {
+                console.log(err);
+            });        
+    };
+
+    $scope.postFindName = function(name) {
         if(name) {
             name = name.toLowerCase();
             var data = {
                 name: name
             };
-            $http.post('/dbPost', data)
+            $http.post('/dbFindName', data)
                 .then(function(response) {
-                    $scope.outputPostData = (_.isEmpty(response.data)) ? 'No Search Matched' : response.data;
+                    $scope.outputFindName = (_.isEmpty(response.data)) ? 'No Search Matched' : response.data;
+                })
+                .catch(function(err) {
+                    console.log(err);
+                });
+        }
+    };
+
+    $scope.postInsertName = function(name) {
+        if(name) {
+            name = name.toLowerCase();
+            var data = {
+                name: name
+            };
+            $http.post('/dbInsert', data)
+                .then(function(response) {
+                    $scope.outputInsertNameRes = response.data;
+                    $scope.getDBCount();
+                    $scope.getAllNames();
+                })
+                .catch(function(err) {
+                    console.log(err);
+                });
+        }
+    };
+
+    $scope.postUpdateVal = function(name, color) {
+        if(name) {
+            name = name.toLowerCase();
+            var data = {
+                name: name,
+                color: color
+            };
+            $http.post('/dbUpdate', data)
+                .then(function(response) {
+                    $scope.outputUpdateNameRes = response.data;
+                    $scope.getAllNames();
+                })
+                .catch(function(err) {
+                    console.log(err);
+                });
+        }
+    };
+
+    $scope.postDeleteName = function(name) {
+        if(name) {
+            name = name.toLowerCase();
+            var data = {
+                name: name
+            };
+            $http.post('/dbDelete', data)
+                .then(function(response) {
+                    $scope.outputDeleteNameRes = response.data;
+                    $scope.getDBCount();
+                    $scope.getAllNames();
                 })
                 .catch(function(err) {
                     console.log(err);

@@ -15,8 +15,10 @@
 
     <h2>This is the <kbd>www/</kbd> <code>index.html</code></h2>
 
+    <!-- js -->
     <h3 id="helloFromJs"></h3>
-
+    
+    <!-- fa & bs font icons -->
     <div class="text-center the-icons">
       <h3>Font Awesome and Bootstrap Glyphicons</h3>
       <i class="fa fa-fighter-jet"></i>
@@ -28,8 +30,10 @@
 
     <div ng-controller="template">
 
+      <!-- angular -->
       <h3>{{hello}}</h3>
 
+      <!-- angular-ui-bootstrap -->
       <div class="row">
         <div class="col-sm-offset-5 col-sm-2 helloABS">
           <button type="button" class="btn btn-default btn-block" ng-click="isCollapsed = !isCollapsed">Hello From...</button>
@@ -38,38 +42,88 @@
       <div class="row">
         <div class="col-sm-offset-4 col-sm-4">
           <div uib-collapse="isCollapsed">
-            <div class="well well text-center text-warning">
+            <div class="well text-center text-warning">
               <strong>Angular UI Bootstrap</strong>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="container">
+      <!-- db -->
+      <div class="container" ng-show="dbActive">
+        <h4 class="text-center" ng-show="outputDBCountRes">
+          <i class="fa fa-database"></i> 
+          There are {{outputDBCountRes}} records in the collection
+          <i class="fa fa-database"></i>
+        </h4>
         <div class="row db-list">
-          <div class="col-sm-offset-1 col-sm-1">
-            <button ng-click="getData();" class="btn btn-warning">Try a Get</button>
+          <div class="col-sm-offset-2 col-sm-2">
+            <button ng-click="getAllNames();" class="btn btn-warning btn-block">Get All Names</button>
           </div>
-          <div class="col-sm-2">
-            <ul>
-              <li ng-repeat="val in outputGetData track by $index">{{val.name}}</li>
+          <div class="col-sm-5" ng-show="outputGetData">
+            <ul class="well">
+              <li class="list-inline" ng-repeat="val in outputGetData track by $index">{{val.name}} | {{val.color}}</li>
             </ul>
           </div>
-          <div class="col-sm-2">
-            <button ng-click="postData(postNameVal);" class="btn btn-warning">Try a Get</button>
+        </div>
+        <div class="row db-list">
+          <div class="col-sm-offset-2 col-sm-2">
+            <button ng-click="postFindName(findNameVal);" class="btn btn-warning btn-block">Find a Name</button>
           </div>
           <div class="col-sm-2">
-            <input type="text" ng-model="postNameVal" class="form-control">
+            <input type="text" ng-model="findNameVal" class="form-control" placeholder="Name">
           </div>
-          <div class="col-sm-4">
-            <ul ng-hide="outputPostData == 'No Search Matched'">
-              <li ng-repeat="val in outputPostData track by $index">
+          <div class="col-sm-5">
+            <ul ng-hide="outputFindName == 'No Search Matched'">
+              <li ng-repeat="val in outputFindName track by $index">
                 <h4>{{val.name}} likes {{val.color}}. Fun? {{val.fun}}.</h4>
               </li>
             </ul>
-            <h4 ng-show="outputPostData == 'No Search Matched'">{{outputPostData}}</h4>
+            <h4 ng-show="outputFindName == 'No Search Matched'">{{outputFindName}}</h4>
+          </div>
+        </div> 
+        <div class="row db-list">
+          <div class="col-sm-offset-2 col-sm-2">
+            <button ng-click="postInsertName(insertNameVal);" class="btn btn-warning btn-block">Add a Name</button>
+          </div>
+          <div class="col-sm-2">
+            <input type="text" ng-model="insertNameVal" class="form-control" placeholder="Name">
+          </div>
+          <div class="col-sm-3">
+            <h4 ng-show="outputInsertNameRes">
+              <kbd>{{outputInsertNameRes}}</kbd>
+            </h4>
           </div>
         </div>
+        <div class="row db-list">
+          <div class="col-sm-offset-2 col-sm-2">
+            <button ng-click="postDeleteName(deleteNameVal);" class="btn btn-warning btn-block">Delete a Name</button>
+          </div>
+          <div class="col-sm-2">
+            <input type="text" ng-model="deleteNameVal" class="form-control" placeholder="Name">
+          </div>
+          <div class="col-sm-3">
+            <h4 ng-show="outputDeleteNameRes">
+              <kbd>{{outputDeleteNameRes}}</kbd>
+            </h4>
+          </div>
+        </div> 
+        <div class="row db-list">
+          <div class="col-sm-offset-2 col-sm-3">
+            <button ng-click="postUpdateVal(updateNameVal, updateColorVal);" class="btn btn-warning btn-block">Update a Name's color</button>
+          </div>
+          <div class="col-sm-2">
+            <input type="text" ng-model="updateNameVal" class="form-control" placeholder="Name">
+          </div>
+          <div class="col-sm-2">
+            <input type="text" ng-model="updateColorVal" class="form-control" placeholder="Color">
+          </div>
+          <div class="col-sm-2">
+            <h4 ng-show="outputupdateNameRes">
+              <kbd>{{outputupdateNameRes}}</kbd>
+            </h4>
+          </div>
+        </div>                 
       </div>
 
     </div><!-- ang template -->
