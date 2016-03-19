@@ -1,10 +1,10 @@
 @bg : #777;
-@bg-opacity: rgba(0, 68, 102, 0.43);
+@bg-blue-opacity: rgba(0, 68, 102, 0.43);
 @yellow-font: #EEDD5B;
 body {
-  background-color: @bg;
-  background-image: url('../images/black-thread-light.png');
-  font-family: 'Raleway', sans-serif;
+  	background-color: @bg;
+  	background-image: url('../images/black-thread-light.png');
+  	font-family: 'Raleway', sans-serif;
 }
 h1, h2, h3{
 	text-align: center;
@@ -23,14 +23,14 @@ h4{
 	color: @yellow-font;
 }
 img{
-  margin: 0 auto;
-  display: block;
-  width: 130px;
+  	margin: 0 auto;
+  	display: block;
+  	width: 130px;
 }
 .db-record-count{
 	height: 45px;
-	background-color: @bg-opacity;
-	border: 1px solid darken(@bg-opacity, 20%);
+	background-color: @bg-blue-opacity;
+	border: 1px solid darken(@bg-blue-opacity, 20%);
 	border-radius: 3px;
 	padding: 10px;
 	width: 50%;
@@ -38,29 +38,29 @@ img{
     text-align: center;
 }
 .well{
-  	background-color: @bg-opacity;
-  	border: 1px solid darken(@bg-opacity, 20%);
+  	background-color: @bg-blue-opacity;
+  	border: 1px solid darken(@bg-blue-opacity, 20%);
   	color: @yellow-font;
 }
 .the-icons{
-  font-size: 40px;
-  color: #EEA778;
-  text-shadow: 2px 2px #333;
+	font-size: 40px;
+	color: #EEA778;
+	text-shadow: 2px 2px #333;
 }
 .helloABS{
-  margin-bottom: 20px;
+ 	margin-bottom: 20px;
 }
 .db-list{
-  text-transform: capitalize;
-  margin-bottom: 15px;
-  ul{
-    list-style: none;
-    .list-inline{
-    	display: inline;
-    	&:before,
-    	&:after{
-    		content: ' - ';
-    	}
-    }
-  }
+ 	text-transform: capitalize;
+ 	margin-bottom: 15px;
+  	ul{
+    	list-style: none;
+    	.list-inline{
+    		display: inline;
+			&:before,
+			&:after{
+				content: ' - ';
+			}
+		}
+	}
 }
