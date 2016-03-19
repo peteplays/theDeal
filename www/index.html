@@ -9,7 +9,7 @@
   </head>
   <body ng-app="theApp">
 
-    <h1>PetePlays</h1>
+    <h1>peteplays</h1>
 
     <img src="images/petelogo.png" alt="peteplays logo">
 
@@ -51,13 +51,13 @@
 
       <!-- db -->
       <div class="container" ng-show="dbActive">
-        <h4 class="text-center" ng-show="outputDBCountRes">
+        <h4 class="db-record-count" ng-show="outputDBCountRes">
           <i class="fa fa-database"></i> 
           There are {{outputDBCountRes}} records in the collection
           <i class="fa fa-database"></i>
         </h4>
         <div class="row db-list">
-          <div class="col-sm-offset-2 col-sm-2">
+          <div class="col-sm-offset-2 col-sm-3">
             <button ng-click="getAllNames();" class="btn btn-warning btn-block">Get All Names</button>
           </div>
           <div class="col-sm-5" ng-show="outputGetData">
@@ -67,7 +67,7 @@
           </div>
         </div>
         <div class="row db-list">
-          <div class="col-sm-offset-2 col-sm-2">
+          <div class="col-sm-offset-2 col-sm-3">
             <button ng-click="postFindName(findNameVal);" class="btn btn-warning btn-block">Find a Name</button>
           </div>
           <div class="col-sm-2">
@@ -83,7 +83,7 @@
           </div>
         </div> 
         <div class="row db-list">
-          <div class="col-sm-offset-2 col-sm-2">
+          <div class="col-sm-offset-2 col-sm-3">
             <button ng-click="postInsertName(insertNameVal);" class="btn btn-warning btn-block">Add a Name</button>
           </div>
           <div class="col-sm-2">
@@ -96,7 +96,7 @@
           </div>
         </div>
         <div class="row db-list">
-          <div class="col-sm-offset-2 col-sm-2">
+          <div class="col-sm-offset-2 col-sm-3">
             <button ng-click="postDeleteName(deleteNameVal);" class="btn btn-warning btn-block">Delete a Name</button>
           </div>
           <div class="col-sm-2">

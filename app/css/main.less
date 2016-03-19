@@ -4,10 +4,14 @@
 body {
   background-color: @bg;
   background-image: url('../images/black-thread-light.png');
+  font-family: 'Raleway', sans-serif;
 }
 h1, h2, h3{
 	text-align: center;
 	color:#eee;
+}
+h1{
+	font-family: 'PT Sans', sans-serif
 }
 h3{
 	small{
@@ -23,8 +27,19 @@ img{
   display: block;
   width: 130px;
 }
+.db-record-count{
+	height: 45px;
+	background-color: @bg-opacity;
+	border: 1px solid darken(@bg-opacity, 20%);
+	border-radius: 3px;
+	padding: 10px;
+	width: 50%;
+    margin: 0 auto 16px;
+    text-align: center;
+}
 .well{
   	background-color: @bg-opacity;
+  	border: 1px solid darken(@bg-opacity, 20%);
   	color: @yellow-font;
 }
 .the-icons{
