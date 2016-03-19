@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=PT+Sans');
 /*!
  * Bootstrap v3.3.6 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
@@ -2164,31 +2166,65 @@
   content: "\f295";
 }
 body {
-  background-color: #069;
+  background-color: #777;
+  background-image: url('../images/black-thread-light.png');
+  font-family: 'Raleway', sans-serif;
 }
-body h1,
-body h2,
-body h3 {
+h1,
+h2,
+h3 {
   text-align: center;
   color: #eee;
 }
-body img {
+h1 {
+  font-family: 'PT Sans', sans-serif;
+}
+h3 small {
+  color: #ccc;
+  font-style: italic;
+}
+h4 {
+  color: #EEDD5B;
+}
+img {
   margin: 0 auto;
   display: block;
   width: 130px;
 }
-body .the-icons {
-  font-size: 20px;
+.db-record-count {
+  height: 45px;
+  background-color: rgba(0, 68, 102, 0.43);
+  border: 1px solid rgba(0, 0, 0, 0.43);
+  border-radius: 3px;
+  padding: 10px;
+  width: 50%;
+  margin: 0 auto 16px;
+  text-align: center;
+}
+.well {
+  background-color: rgba(0, 68, 102, 0.43);
+  border: 1px solid rgba(0, 0, 0, 0.43);
+  color: #EEDD5B;
+}
+.the-icons {
+  font-size: 40px;
   color: #EEA778;
   text-shadow: 2px 2px #333;
 }
-body .helloABS {
+.helloABS {
   margin-bottom: 20px;
 }
-body .db-list {
-  color: #EEDD5B;
+.db-list {
   text-transform: capitalize;
+  margin-bottom: 15px;
 }
-body .db-list ul {
+.db-list ul {
   list-style: none;
+}
+.db-list ul .list-inline {
+  display: inline;
+}
+.db-list ul .list-inline:before,
+.db-list ul .list-inline:after {
+  content: ' - ';
 }

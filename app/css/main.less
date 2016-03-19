@@ -1,27 +1,66 @@
+@bg : #777;
+@bg-blue-opacity: rgba(0, 68, 102, 0.43);
+@yellow-font: #EEDD5B;
 body {
-  background-color: #069;
-  h1, h2, h3{
-  	text-align: center;
-  	color:#eee;
-  }
-  img{
-    margin: 0 auto;
-    display: block;
-    width: 130px;
-  }
-  .the-icons{
-    font-size: 20px;
-    color: #EEA778;
-    text-shadow: 2px 2px #333;
-  }
-  .helloABS{
-    margin-bottom: 20px;
-  }
-  .db-list{
-    color: #EEDD5B;
-    text-transform: capitalize;
-    ul{
-      list-style: none;
-    }
-  }
+  	background-color: @bg;
+  	background-image: url('../images/black-thread-light.png');
+  	font-family: 'Raleway', sans-serif;
+}
+h1, h2, h3{
+	text-align: center;
+	color:#eee;
+}
+h1{
+	font-family: 'PT Sans', sans-serif
+}
+h3{
+	small{
+		color:#ccc;
+		font-style: italic;
+	}
+}
+h4{
+	color: @yellow-font;
+}
+img{
+  	margin: 0 auto;
+  	display: block;
+  	width: 130px;
+}
+.db-record-count{
+	height: 45px;
+	background-color: @bg-blue-opacity;
+	border: 1px solid darken(@bg-blue-opacity, 20%);
+	border-radius: 3px;
+	padding: 10px;
+	width: 50%;
+    margin: 0 auto 16px;
+    text-align: center;
+}
+.well{
+  	background-color: @bg-blue-opacity;
+  	border: 1px solid darken(@bg-blue-opacity, 20%);
+  	color: @yellow-font;
+}
+.the-icons{
+	font-size: 40px;
+	color: #EEA778;
+	text-shadow: 2px 2px #333;
+}
+.helloABS{
+ 	margin-bottom: 20px;
+}
+.db-list{
+ 	text-transform: capitalize;
+ 	margin-bottom: 15px;
+  	ul{
+    	list-style: none;
+    	.list-inline{
+    		display: inline;
+			&:before,
+			&:after{
+				content: ' - ';
+			}
+		}
+	}
 }

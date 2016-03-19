@@ -58,7 +58,7 @@ gulp.task('live-reload', function() {
   browserSync.init({
     port: 7777,
     server: {
-      baseDir: ['www', 'media']
+      baseDir: ['www', 'resources']
     }
   });
   gulp.watch("app/css/*.less", ['css']);
@@ -70,6 +70,6 @@ gulp.task('reload-js', ['js'], browserSync.reload);
 
 //-- run tasks
 gulp.task('default', ['js', 'css', 'live-reload']);
-gulp.task('local', ['uglify', 'minify']);
+gulp.task('local', ['js', 'css']);
 gulp.task('build', ['uglify', 'fa-icons', 'bs-icons', 'minify']);
 
