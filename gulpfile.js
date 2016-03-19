@@ -58,7 +58,7 @@ gulp.task('live-reload', function() {
   browserSync.init({
     port: 7777,
     server: {
-      baseDir: ['www', 'media']
+      baseDir: ['www', 'resources']
     }
   });
   gulp.watch("app/css/*.less", ['css']);

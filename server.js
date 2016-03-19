@@ -8,7 +8,7 @@ var express     = require('express'),
 
 console.log('Server running at http://localhost:'+port);
 
-app.use(express.static('media'));
+app.use(express.static('resources'));
 app.use(express.static('www'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -53,7 +53,6 @@ app.post('/dbPost', function(req,res) {
             	console.log(err);
                 throw err;
             }
-            console.log(result);
             res.send(result);
         });
     });

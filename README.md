@@ -31,7 +31,7 @@ Severed at `http://localhost:5555`
 - font-awesome
 
 ## Usage
-`gulp build` will build `bundled.css` and `bundled.js`, `bundled.min.css` and `bundled.min.js`, & add the bootstrap and font awesome icons to `fonts` __run this first__
+`gulp build` will build `bundled.css` and `bundled.js`, `bundled.min.css` and `bundled.min.js`, & add the bootstrap and font awesome icons to `fonts` (___run this first__)
 
 `gulp` will build your `bundled.css` and `bundled.js` in `www` -> `css` and `js` and run live reloads
 
@@ -39,9 +39,11 @@ Severed at `http://localhost:5555`
 
 `npm start` with mongo running will give you access to the mongo
 
-edit files in `app` -> `js` and `css` they will be bundled into `prod` and `dev`
+edit files in `app` -> `js` and `css` they will be bundled into `www`
 
-add images in `media/images/`
+add resources in `resources` 
+
+images are in `resources/images/`
 
 ### Mongo
 Start mongo

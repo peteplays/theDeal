@@ -6,12 +6,11 @@ require('angular-ui-bootstrap/dist/ui-bootstrap-tpls');
 
 var theApp = angular.module('theApp', [
     'ui.bootstrap',
-    'ngAnimate'
+    'ngAnimate',
 ])
 .controller('template', require('./js/main.js'))
-//.service('dbconnect', require('./js/dbconnect.js'))
 ;
-}).call(this,require("pBGvAp"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_bc52a28f.js","/")
+}).call(this,require("pBGvAp"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_d070e76a.js","/")
 },{"./js/main.js":2,"angular-animate/angular-animate.min":3,"angular-ui-bootstrap/dist/ui-bootstrap-tpls":4,"angular/angular.min":5,"buffer":7,"pBGvAp":9}],2:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 //@ngInject
@@ -20,7 +19,7 @@ module.exports = ['$scope', '$http', function($scope, $http) {
     console.log('this is awesome!!!!!');
 
     var hi = document.getElementById('helloFromJs');
-    hi.innerHTML += '<em>Hello...</em> from <kbd>app/js/</kbd> <code>main.js</code>!!!';
+    hi.innerHTML += '<em>Hello...</em> from <kbd>app/js/</kbd> <code>main.js</code>!!! <small>this is the <code>bundle.js</code> file served from <kbd>www/js/</kbd></small>';
 
     $scope.hello = 'Hello From Angular';
     $scope.isCollapsed = true;
