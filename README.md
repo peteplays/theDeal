@@ -7,12 +7,12 @@ Clone repo
 
 `gulp build`
 
-## Develop Locally
-`gulp` or `npm start`
+## Develop Locally without DB Access
+`gulp`
 
 This will open a browser window with live reloads
 
-## Develop with DB Support
+## Develop Locally with DB Support
 `npm start`
 
 Severed at `http://localhost:5555`
@@ -31,7 +31,7 @@ Severed at `http://localhost:5555`
 - font-awesome
 
 ## Usage
-`gulp build` will build `bundled.css` and `bundled.js`, `bundled.min.css` and `bundled.min.js`, & add the bootstrap and font awesome icons to `fonts` (___run this first__)
+`gulp build` will build `bundled.css` and `bundled.js`, `bundled.min.css` and `bundled.min.js`, & add the bootstrap and font awesome icons to `fonts` (_run this first_)
 
 `gulp` will build your `bundled.css` and `bundled.js` in `www` -> `css` and `js` and run live reloads
 
@@ -41,7 +41,7 @@ Severed at `http://localhost:5555`
 
 edit files in `app` -> `js` and `css` they will be bundled into `www`
 
-add resources in `resources` 
+add resources in `resources`
 
 images are in `resources/images/`
 
