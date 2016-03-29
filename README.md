@@ -12,7 +12,7 @@ Clone repo
 
 This will open a browser window with live reloads
 
-## Develop Locally with DB Support
+## Develop Locally with DB Access
 `npm start`
 
 Severed at `http://localhost:5555`
