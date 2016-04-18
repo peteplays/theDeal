@@ -10,11 +10,10 @@ var theApp = angular.module('theApp', [
 ])
 .controller('template', require('./js/main.js'))
 ;
-}).call(this,require("pBGvAp"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_7d4c1c33.js","/")
+}).call(this,require("pBGvAp"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_cc974bfa.js","/")
 },{"./js/main.js":2,"angular-animate/angular-animate.min":3,"angular-ui-bootstrap/dist/ui-bootstrap-tpls":4,"angular/angular.min":5,"buffer":7,"pBGvAp":9}],2:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 //@ngInject
-var _ = require('underscore');
 module.exports = ['$scope', '$http', function($scope, $http) {
 
     console.log('this is awesome!!!!!');
@@ -27,115 +26,12 @@ module.exports = ['$scope', '$http', function($scope, $http) {
 
     $scope.dbActive = false;
 
-    $scope.getDBCheck = function() {
-        $http.get('/dbCheck')
-            .then(function(response) {
-              	if(response.data.db == 'ok') { 
-               		$scope.dbActive = true;
-               		$scope.getDBCount();
-               	} else { 
-               		console.log(response.data); 
-               	} 
-            })
-            .catch(function(err) {
-                console.log(err);
-            });
-    };
-    $scope.getDBCheck();
+    var mongoDB = require('../../resources/db/mongodb/mongoDBUI.js');
+    mongoDB($scope, $http);
 
-    $scope.getAllNames = function() {
-        $http.get('/dbGetAllNames')
-            .then(function(response) {
-                $scope.outputGetData = response.data;
-            })
-            .catch(function(err) {
-                console.log(err);
-            });
-    };
-
-    $scope.getDBCount = function() {       
-        name = name.toLowerCase();
-        $http.get('/dbCount')
-            .then(function(response) {
-                $scope.outputDBCountRes = response.data;
-            })
-            .catch(function(err) {
-                console.log(err);
-            });        
-    };
-
-    $scope.postFindName = function(name) {
-        if(name) {
-            name = name.toLowerCase();
-            var data = {
-                name: name
-            };
-            $http.post('/dbFindName', data)
-                .then(function(response) {
-                    $scope.outputFindName = (_.isEmpty(response.data)) ? 'No Search Matched' : response.data;
-                })
-                .catch(function(err) {
-                    console.log(err);
-                });
-        }
-    };
-
-    $scope.postInsertName = function(name) {
-        if(name) {
-            name = name.toLowerCase();
-            var data = {
-                name: name
-            };
-            $http.post('/dbInsert', data)
-                .then(function(response) {
-                    $scope.outputInsertNameRes = response.data;
-                    $scope.getDBCount();
-                    $scope.getAllNames();
-                })
-                .catch(function(err) {
-                    console.log(err);
-                });
-        }
-    };
-
-    $scope.postUpdateVal = function(name, color) {
-        if(name) {
-            name = name.toLowerCase();
-            var data = {
-                name: name,
-                color: color
-            };
-            $http.post('/dbUpdate', data)
-                .then(function(response) {
-                    $scope.outputUpdateNameRes = response.data;
-                    $scope.getAllNames();
-                })
-                .catch(function(err) {
-                    console.log(err);
-                });
-        }
-    };
-
-    $scope.postDeleteName = function(name) {
-        if(name) {
-            name = name.toLowerCase();
-            var data = {
-                name: name
-            };
-            $http.post('/dbDelete', data)
-                .then(function(response) {
-                    $scope.outputDeleteNameRes = response.data;
-                    $scope.getDBCount();
-                    $scope.getAllNames();
-                })
-                .catch(function(err) {
-                    console.log(err);
-                });
-        }
-    };
 }];
 }).call(this,require("pBGvAp"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/js/main.js","/js")
-},{"buffer":7,"pBGvAp":9,"underscore":10}],3:[function(require,module,exports){
+},{"../../resources/db/mongodb/mongoDBUI.js":11,"buffer":7,"pBGvAp":9}],3:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /*
  AngularJS v1.5.1
@@ -10832,4 +10728,118 @@ process.chdir = function (dir) {
 }.call(this));
 
 }).call(this,require("pBGvAp"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/../node_modules/underscore/underscore.js","/../node_modules/underscore")
-},{"buffer":7,"pBGvAp":9}]},{},[1])
+},{"buffer":7,"pBGvAp":9}],11:[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
+var _ = require('underscore');
+module.exports = function($scope, $http) {
+
+    $scope.getDBCheck = function() {
+        $http.get('/dbCheck')
+            .then(function(response) {
+                if(response.data.db == 'ok') {
+                    $scope.dbActive = true;
+                    $scope.getDBCount();
+                } else {
+                    console.log(response.data);
+                }
+            })
+            .catch(function(err) {
+                console.log(err);
+            });
+    };
+    $scope.getDBCheck();
+
+    $scope.getAllNames = function() {
+        $http.get('/dbGetAllNames')
+            .then(function(response) {
+                $scope.outputGetData = response.data;
+            })
+            .catch(function(err) {
+                console.log(err);
+            });
+    };
+
+    $scope.getDBCount = function() {
+        name = name.toLowerCase();
+        $http.get('/dbCount')
+            .then(function(response) {
+                $scope.outputDBCountRes = response.data;
+            })
+            .catch(function(err) {
+                console.log(err);
+            });
+    };
+
+    $scope.postFindName = function(name) {
+        if(name) {
+            name = name.toLowerCase();
+            var data = {
+                name: name
+            };
+            $http.post('/dbFindName', data)
+                .then(function(response) {
+                    $scope.outputFindName = (_.isEmpty(response.data)) ? 'No Search Matched' : response.data;
+                })
+                .catch(function(err) {
+                    console.log(err);
+                });
+        }
+    };
+
+  $scope.postInsertName = function(name) {
+        if(name) {
+            name = name.toLowerCase();
+            var data = {
+                name: name
+            };
+            $http.post('/dbInsert', data)
+                .then(function(response) {
+                    $scope.outputInsertNameRes = response.data;
+                    $scope.getDBCount();
+                    $scope.getAllNames();
+                })
+                .catch(function(err) {
+                    console.log(err);
+                });
+        }
+     };
+
+    $scope.postUpdateVal = function(name, color) {
+        if(name) {
+            name = name.toLowerCase();
+            var data = {
+                name: name,
+                color: color
+            };
+            $http.post('/dbUpdate', data)
+                .then(function(response) {
+                    $scope.outputUpdateNameRes = response.data;
+                    $scope.getAllNames();
+                })
+                .catch(function(err) {
+                    console.log(err);
+                });
+        }
+    };
+
+    $scope.postDeleteName = function(name) {
+        if(name) {
+            name = name.toLowerCase();
+            var data = {
+                name: name
+            };
+            $http.post('/dbDelete', data)
+                .then(function(response) {
+                    $scope.outputDeleteNameRes = response.data;
+                    $scope.getDBCount();
+                    $scope.getAllNames();
+                })
+                .catch(function(err) {
+                    console.log(err);
+                });
+        }
+    };
+
+};
+}).call(this,require("pBGvAp"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/../resources/db/mongodb/mongoDBUI.js","/../resources/db/mongodb")
+},{"buffer":7,"pBGvAp":9,"underscore":10}]},{},[1])

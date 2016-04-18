@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico">
     <title>The Deal Template</title>
     <link rel="stylesheet" href="css/bundle.css">
   </head>
@@ -17,7 +18,7 @@
 
     <!-- js -->
     <h3 id="helloFromJs"></h3>
-    
+
     <!-- fa & bs font icons -->
     <div class="text-center the-icons">
       <h3>Font Awesome and Bootstrap Glyphicons</h3>
@@ -52,7 +53,7 @@
       <!-- db -->
       <div class="container" ng-show="dbActive">
         <h4 class="db-record-count" ng-show="outputDBCountRes">
-          <i class="fa fa-database"></i> 
+          <i class="fa fa-database"></i>
           There are {{outputDBCountRes}} records in the collection
           <i class="fa fa-database"></i>
         </h4>
@@ -81,7 +82,7 @@
             </ul>
             <h4 ng-show="outputFindName == 'No Search Matched'">{{outputFindName}}</h4>
           </div>
-        </div> 
+        </div>
         <div class="row db-list">
           <div class="col-sm-offset-2 col-sm-3">
             <button ng-click="postInsertName(insertNameVal);" class="btn btn-warning btn-block">Add a Name</button>
@@ -107,7 +108,7 @@
               <kbd>{{outputDeleteNameRes}}</kbd>
             </h4>
           </div>
-        </div> 
+        </div>
         <div class="row db-list">
           <div class="col-sm-offset-2 col-sm-3">
             <button ng-click="postUpdateVal(updateNameVal, updateColorVal);" class="btn btn-warning btn-block">Update a Name's color</button>
@@ -123,7 +124,7 @@
               <kbd>{{outputupdateNameRes}}</kbd>
             </h4>
           </div>
-        </div>                 
+        </div>
       </div>
 
     </div><!-- ang template -->
