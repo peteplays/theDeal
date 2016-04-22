@@ -19,7 +19,9 @@ app.get('/',function(req,res){
     //res.sendFile(path.join(__dirname + '/www/indexp.html'));
 });
 
-var mongoDBConnection = require('./resources/db/mongodb/mongoDBConnection.js');
-mongoDBConnection(app);
+//var db = require('./resources/db/mongodb/mongoDBConnection.js');
+var db = require('./resources/db/couchdb/couchDBConnection.js');
+
+db(app);
 
 app.listen(port);

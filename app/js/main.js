@@ -9,9 +9,10 @@ module.exports = ['$scope', '$http', function($scope, $http) {
     $scope.hello = 'Hello From Angular';
     $scope.isCollapsed = true;
 
-    $scope.dbActive = false;
+    $scope.dbActive = true;
 
-    var mongoDB = require('../../resources/db/mongodb/mongoDBUI.js');
-    mongoDB($scope, $http);
+    //var db = require('../../resources/db/mongodb/mongoDBUI.js');
+    var db = require('../../resources/db/couchdb/couchDBUI.js');
+    db($scope, $http);
 
 }];
