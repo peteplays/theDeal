@@ -27,6 +27,9 @@ img{
   	display: block;
   	width: 130px;
 }
+.capitalize{
+    text-transform: capitalize;
+}
 .db-record-count{
 	height: 45px;
 	background-color: @bg-blue-opacity;
@@ -51,16 +54,8 @@ img{
  	margin-bottom: 20px;
 }
 .db-list{
- 	text-transform: capitalize;
  	margin-bottom: 15px;
   	ul{
     	list-style: none;
-    	.list-inline{
-    		display: inline;
-			&:before,
-			&:after{
-				content: ' - ';
-			}
-		}
-	}
+	  }
 }

@@ -9,7 +9,13 @@ module.exports = ['$scope', '$http', function($scope, $http) {
     $scope.hello = 'Hello From Angular';
     $scope.isCollapsed = true;
 
-    $scope.dbActive = true;
+    $scope.dbActive = false;
+
+    $scope.clearInput = function(clearInputsArr) {
+        clearInputsArr.forEach(function(inputModel) {
+            $scope[inputModel] = '';
+        });
+    };
 
     //var db = require('../../resources/db/mongodb/mongoDBUI.js');
     var db = require('../../resources/db/couchdb/couchDBUI.js');

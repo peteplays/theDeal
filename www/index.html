@@ -58,67 +58,82 @@
           <i class="fa fa-database"></i>
         </h4>
         <div class="row db-list">
-          <div class="col-sm-offset-2 col-sm-3">
+          <div class="col-sm-offset-1 col-sm-3">
             <button ng-click="getAllNames();" class="btn btn-warning btn-block">Get All Names</button>
           </div>
           <div class="col-sm-5" ng-show="outputGetData">
             <ul class="well">
               <!-- <li class="list-inline" ng-repeat="val in outputGetData track by $index">{{val.name}} | {{val.color}}</li> -->
-              <li class="list-inline" ng-repeat="val in outputGetData track by $index">{{val.value.name}} likes {{val.value.color}}. Fun? {{val.value.fun}}.</li>
+              <li class="list-inline" ng-repeat="val in outputGetData track by $index">
+                <span class="capitalize">{{val.value.name}}</span>
+                likes {{val.value.color}}.
+                Fun... Survey says...
+                <em>{{val.value.fun}}</em>
+                .
+              </li>
             </ul>
           </div>
         </div>
         <div class="row db-list">
-          <div class="col-sm-offset-2 col-sm-3">
-            <button ng-click="postFindName(findNameVal);" class="btn btn-warning btn-block">Find a Name</button>
+          <div class="col-sm-offset-1 col-sm-3">
+            <button ng-disabled="findNameVal == null || findNameVal == ''" ng-click="postFindName(findNameVal); clearInput(['findNameVal']);" class="btn btn-warning btn-block">Find a Name</button>
           </div>
           <div class="col-sm-2">
             <input type="text" ng-model="findNameVal" class="form-control" placeholder="Name">
           </div>
           <div class="col-sm-5">
-            <h4 ng-show="outputFindName && outputFindName != 'No Search Matched'">{{outputFindName.name}} likes {{outputFindName.color}}. Fun? {{outputFindName.fun}}.</h4>
+            <h4 ng-show="outputFindName && outputFindName != 'No Search Matched'">
+              <span class="capitalize">{{outputFindName.name}}</span>
+              likes {{outputFindName.color}}. Fun? {{outputFindName.fun}}.
+            </h4>
             <h4 ng-show="outputFindName == 'No Search Matched'">{{outputFindName}}</h4>
           </div>
         </div>
         <div class="row db-list">
-          <div class="col-sm-offset-2 col-sm-3">
-            <button ng-click="postInsertName(insertNameVal);" class="btn btn-warning btn-block">Add a Name</button>
+          <div class="col-sm-offset-1 col-sm-3">
+            <button ng-disabled="insertNameVal == null || insertNameVal == ''" ng-click="postInsertName(insertNameVal); clearInput(['insertNameVal']);" class="btn btn-warning btn-block">Add a Name</button>
           </div>
           <div class="col-sm-2">
             <input type="text" ng-model="insertNameVal" class="form-control" placeholder="Name">
           </div>
-          <div class="col-sm-3">
+          <div class="col-sm-4">
             <h4 ng-show="outputInsertNameRes">
               <kbd>{{outputInsertNameRes}}</kbd>
             </h4>
           </div>
         </div>
         <div class="row db-list">
-          <div class="col-sm-offset-2 col-sm-3">
-            <button ng-click="postDeleteName(deleteNameVal);" class="btn btn-warning btn-block">Delete a Name</button>
+          <div class="col-sm-offset-1 col-sm-3">
+            <button ng-disabled="deleteNameVal == null || deleteNameVal == ''" ng-click="postDeleteName(deleteNameVal); clearInput(['deleteNameVal']);" class="btn btn-warning btn-block">Delete a Name</button>
           </div>
           <div class="col-sm-2">
             <input type="text" ng-model="deleteNameVal" class="form-control" placeholder="Name">
           </div>
-          <div class="col-sm-3">
+          <div class="col-sm-4">
             <h4 ng-show="outputDeleteNameRes">
               <kbd>{{outputDeleteNameRes}}</kbd>
             </h4>
           </div>
         </div>
         <div class="row db-list">
-          <div class="col-sm-offset-2 col-sm-3">
-            <button ng-click="postUpdateVal(updateNameVal, updateColorVal);" class="btn btn-warning btn-block">Update a Name's color</button>
+          <div class="col-sm-offset-1 col-sm-3">
+            <button ng-disabled="nameToUpdate == null || updateField == null || updateVal == null || nameToUpdate == '' || updateVal == ''" ng-click="postUpdateVal(nameToUpdate, updateField, updateVal); clearInput(['nameToUpdate', 'updateVal']);" class="btn btn-warning btn-block">Update Color or Fun</button>
           </div>
           <div class="col-sm-2">
-            <input type="text" ng-model="updateNameVal" class="form-control" placeholder="Name">
+            <input type="text" ng-model="nameToUpdate" class="form-control" placeholder="Name">
           </div>
           <div class="col-sm-2">
-            <input type="text" ng-model="updateColorVal" class="form-control" placeholder="Color">
+            <div class="btn-group">
+              <label class="btn btn-warning" ng-model="updateField" uib-btn-radio="'color'">Color</label>
+              <label class="btn btn-warning" ng-model="updateField" uib-btn-radio="'fun'">Fun</label>
+            </div>
           </div>
           <div class="col-sm-2">
-            <h4 ng-show="outputupdateNameRes">
-              <kbd>{{outputupdateNameRes}}</kbd>
+            <input type="text" ng-model="updateVal" class="form-control" placeholder="Color">
+          </div>
+          <div class="col-sm-2">
+            <h4 ng-show="outputUpdateNameRes">
+              <kbd>{{outputUpdateNameRes}}</kbd>
             </h4>
           </div>
         </div>
