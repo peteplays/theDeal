@@ -1,39 +1,73 @@
-var request = require('request'),
-    db = 'test';
+var request     = require('request'),
+    u           = 'foo',
+    p           = 'bar',
+    couchdb_url = 'http://'+u+':'+p+'@localhost:5984',
+    nano        = require('nano')(couchdb_url),
+    db_name     = 'deal',
+    db          = nano.use(db_name);
+
+// var nano = require('nano-blue')('http://localhost:5984'),
+//     db   = nano.use('alice');
 
 module.exports = function(app) {
 
-    // app.get('/dbCheck', function(req,res) {
-
-    // });
-
-    app.get('/dbGetAllNames', function(req,res) {
-        request.get('http://127.0.0.1:5984/'+db+'/_all_docs',  function (error, response, body) {
-          if(error) {
-            console.log(error);
-          }
-          if(response) {
-            //console.log(response.body);
-            //console.log(JSON.parse(body));
-            var jsonData = JSON.parse(body);
-            jsonData.rows.forEach(function(v) {
-                console.log(v);
-            });
-          }
+    app.get('/dbCheck', function(req,res) {
+        request.get(couchdb_url+'/'+db_name, function(error, response, body) {
+            if(error) {console.log(error); return;}
+            if(response) {
+                var jsonData = JSON.parse(body);
+                if(jsonData.db_name == db_name) res.send('ok');
+            }
         });
     });
 
-    // app.get('/dbCount', function(req,res) {
+    app.get('/dbGetAllNames', function(req,res) { 
+        db.view('list', 'listalldocs', function(err, body) {
+            if(err) {console.log(err); return;}
+            if(!err) {
+                res.send(body.rows);
+            }
+        });
+    });
 
-    // });
+    app.get('/dbCount', function(req,res) {
+        db.view('list', 'listalldocs', function(err, body) {
+            if(err) {console.log(err); return;}
+            if(!err) {
+                res.json(body.rows.length);
+            }
+        });    
+    });
 
-    // app.post('/dbFindName', function(req,res) {
+    app.post('/dbFindName', function(req,res) {
+        var search = { key: req.body.name };
+        db.view('search', 'searchbyname', search,function(err, body) {
+            if(err) {console.log(err); return;}
+            if(!err) {
+                if(body.rows[0]) {
+                    res.json(body.rows[0].value);
+                } else {
+                    res.json();
+                }              
+            }
+        });
+        //http://localhost:5984/YOUR_DTABASE/_design/YOUR_DESIGN_DOCUMENT/_view/YOUR_VIEW?key='e-mail@addre.ss'
+    });
 
-    // });
-
-    // app.post('/dbInsert', function(req,res) {
-
-    // });
+    app.post('/dbInsert', function(req,res) {
+        var addData = { name: req.body.name, color: 'orange', fun: 'yes' };
+        db.insert(addData, function(err, body, header) {
+            if(err) { console.log(err.message); return; }
+            if(!err) {
+                console.log(body);
+                if(body.ok === true) {
+                    res.json(addData);
+                } else {
+                    res.json();
+                }              
+            }
+        });
+    });
 
     // app.post('/dbUpdate', function(req,res) {
 

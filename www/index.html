@@ -63,7 +63,8 @@
           </div>
           <div class="col-sm-5" ng-show="outputGetData">
             <ul class="well">
-              <li class="list-inline" ng-repeat="val in outputGetData track by $index">{{val.name}} | {{val.color}}</li>
+              <!-- <li class="list-inline" ng-repeat="val in outputGetData track by $index">{{val.name}} | {{val.color}}</li> -->
+              <li class="list-inline" ng-repeat="val in outputGetData track by $index">{{val.value.name}} likes {{val.value.color}}. Fun? {{val.value.fun}}.</li>
             </ul>
           </div>
         </div>
@@ -75,11 +76,7 @@
             <input type="text" ng-model="findNameVal" class="form-control" placeholder="Name">
           </div>
           <div class="col-sm-5">
-            <ul ng-hide="outputFindName == 'No Search Matched'">
-              <li ng-repeat="val in outputFindName track by $index">
-                <h4>{{val.name}} likes {{val.color}}. Fun? {{val.fun}}.</h4>
-              </li>
-            </ul>
+            <h4 ng-show="outputFindName && outputFindName != 'No Search Matched'">{{outputFindName.name}} likes {{outputFindName.color}}. Fun? {{outputFindName.fun}}.</h4>
             <h4 ng-show="outputFindName == 'No Search Matched'">{{outputFindName}}</h4>
           </div>
         </div>
