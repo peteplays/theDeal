@@ -43,7 +43,8 @@ module.exports = function($scope, $http) {
             var search = { name: name };
             $http.post('/dbFindName', search)
                 .then(function(response) {
-                    $scope.outputFindName = (_.isEmpty(response.data)) ? 'No Search Matched' : response.data;
+                    // $scope.outputFindName = (_.isEmpty(response.data)) ? 'No Search Matched' : response.data;
+                    $scope.outputFindName = response.data;
                 })
                 .catch(function(err) {
                     console.log(err);
@@ -72,7 +73,7 @@ module.exports = function($scope, $http) {
             name = name.toLowerCase();
             var data = {};
             data.name = name;
-            data[field] = attr;
+            data[field.toLowerCase()] = attr.toLowerCase();
             $http.post('/dbUpdate', data)
                 .then(function(response) {
                     $scope.outputUpdateNameRes = response.data;

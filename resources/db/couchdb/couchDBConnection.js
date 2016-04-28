@@ -1,5 +1,4 @@
-var request     = require('request'),
-    _           = require('underscore'),
+var _           = require('underscore'),
     u           = 'foo',
     p           = 'bar',
     couchdb_url = 'http://'+u+':'+p+'@localhost:5984',
@@ -9,22 +8,17 @@ var request     = require('request'),
 
 module.exports = function(app) {
 
-    app.get('/dbCheck', function(req,res) {
-        request.get(couchdb_url+'/'+db_name, function(error, response, body) {
-            if(error) {console.log(error); return;}
-            if(response) {
-                var jsonData = JSON.parse(body);
-                if(jsonData.db_name == db_name) res.send('ok');
-            }
+    app.get('/dbCheck', function(req,res) {        
+        nano.db.get(db_name, function(err, body) {
+            if(err) { console.log(err); return; }
+            if (!err) { if(body.db_name == db_name) res.send('ok'); }
         });
     });
 
     app.get('/dbGetAllNames', function(req,res) {
         db.view('list', 'listalldocs', function(err, body) {
-            if(err) {console.log(err); return;}
-            if(!err) {
-                res.send(body.rows);
-            }
+            if(err) { console.log(err); return; }
+            if(!err) { res.send(body.rows); }
         });
         //-- user default function
         //-- http://localhost:5984/YOUR_DTABASE/_design/{list}/_view/{listalldocs}
@@ -32,10 +26,8 @@ module.exports = function(app) {
 
     app.get('/dbCount', function(req,res) {
         db.view('list', 'listalldocs', function(err, body) {
-            if(err) {console.log(err); return;}
-            if(!err) {
-                res.json(body.rows.length);
-            }
+            if(err) { console.log(err); return; }
+            if(!err) { res.json(body.rows.length); }
         });
     });
 
@@ -44,11 +36,11 @@ module.exports = function(app) {
         db.view('search', 'searchbyname', search, function(err, body) {
             if(err) {console.log(err); return;}
             if(!err) {
-                if(body.rows[0]) {
+                if(_.isEmpty(body.rows)) {
+                    res.send('`' + req.body.name + '` not in DB');
+                } else if(body.rows[0]) {
                     res.json(body.rows[0].value);
-                } else {
-                    res.json();
-                }
+                } else { res.json(); }
             }
         });
         //-- set view design `search` view: view name: `searchbyname`
@@ -61,14 +53,12 @@ module.exports = function(app) {
 
     app.post('/dbInsert', function(req,res) {
         var add_data = { name: req.body.name, color: 'orange', fun: 'yes' };
-        db.insert(add_data, function(err, body, header) {
+        db.insert(add_data, function(err, body) {
             if(err) { console.log(err.message); res.json(); }
             if(!err) {
                 if(body.ok === true) {
                     res.json(add_data);
-                } else {
-                    res.json();
-                }
+                } else { res.json(); }
             }
         });
     });
@@ -82,7 +72,7 @@ module.exports = function(app) {
             if(err) {console.log(err); return;}
             if(!err) {
                 if(_.isEmpty(body.rows)) {
-                    res.send('Did not find `' + req.body.name + '` in the DB');
+                    res.send('`' + req.body.name + '` not in DB');
                 } else if(body.rows[0]) {
                     var updated_values = _.extendOwn(body.rows[0].value, add_data);
                     db.insert(updated_values, function(err, body) {
@@ -95,9 +85,7 @@ module.exports = function(app) {
                             }
                         }
                     });
-                } else {
-                    res.json();
-                }
+                } else { res.json(); }
             }
         });
     });
@@ -108,7 +96,7 @@ module.exports = function(app) {
             if(err) {console.log(err); return;}
             if(!err) {
                 if(_.isEmpty(body.rows)) {
-                    res.send('Did not find `' + req.body.name + '` in the DB');
+                    res.send('`' + req.body.name + '` not in DB');
                 } else if(body.rows[0]) {
                     db.destroy(body.rows[0].value._id, body.rows[0].value._rev, function(err, body) {
                         if(err) { console.log(err); res.json(); }
@@ -120,9 +108,7 @@ module.exports = function(app) {
                             }
                         }
                     });
-                } else {
-                    res.json();
-                }
+                } else { res.json(); }
             }
         });
     });

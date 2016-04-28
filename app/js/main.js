@@ -11,10 +11,24 @@ module.exports = ['$scope', '$http', function($scope, $http) {
 
     $scope.dbActive = false;
 
+    //-- WIP
+    $scope.submitOnEnter = function(funcName, data, fieldNames) {    	
+    	if(funcName != 'postUpdateVal') {
+    		$scope[funcName](data[0]); 
+    	} else if(funcName == 'postUpdateVal' && data[0] != null && data[2] != null) {
+    		$scope[funcName](data[0], data[1], data[2]);
+    	}
+    	$scope.clearInput(fieldNames);
+    };
+
     $scope.clearInput = function(clearInputsArr) {
         clearInputsArr.forEach(function(inputModel) {
             $scope[inputModel] = '';
         });
+        var clearOutputs = ['outputFindName', 'outputInsertNameRes', 'outputDeleteNameRes','outputUpdateNameRes'];
+    	clearOutputs.forEach(function(outputModel) { 
+    	    $scope[outputModel] = '';
+    	});
     };
 
     //var db = require('../../resources/db/mongodb/mongoDBUI.js');
