@@ -43,8 +43,7 @@ module.exports = function($scope, $http) {
             var search = { name: name };
             $http.post('/dbFindName', search)
                 .then(function(response) {
-                    // $scope.outputFindName = (_.isEmpty(response.data)) ? 'No Search Matched' : response.data;
-                    $scope.outputFindName = response.data;
+                    $scope.inputFeedback = response.data;
                 })
                 .catch(function(err) {
                     console.log(err);
@@ -60,7 +59,7 @@ module.exports = function($scope, $http) {
             var data = { name: name, color: color, fun: fun };
             $http.post('/dbInsert', data)
                 .then(function(response) {
-                    $scope.outputInsertNameRes = response.data;
+                    $scope.inputFeedback = response.data;
                     $scope.getDBCount();
                     $scope.getAllNames();
                 })
@@ -78,7 +77,7 @@ module.exports = function($scope, $http) {
             data[field.toLowerCase()] = attr.toLowerCase();
             $http.post('/dbUpdate', data)
                 .then(function(response) {
-                    $scope.outputUpdateNameRes = response.data;
+                    $scope.inputFeedback = response.data;
                     $scope.getAllNames();
                 })
                 .catch(function(err) {
@@ -93,7 +92,7 @@ module.exports = function($scope, $http) {
             var data = { name: name };
             $http.post('/dbDelete', data)
                 .then(function(response) {
-                    $scope.outputDeleteNameRes = response.data;
+                    $scope.inputFeedback = response.data;
                     $scope.getDBCount();
                     $scope.getAllNames();
                 })

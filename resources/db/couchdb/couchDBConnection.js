@@ -39,7 +39,7 @@ module.exports = function(app) {
                 if(_.isEmpty(body.rows)) {
                     res.send('`' + req.body.name + '` not in DB');
                 } else if(body.rows[0]) {
-                    res.json(body.rows[0].value);
+                    res.json(_.omit(body.rows[0].value, '_id', '_rev'));
                 } else { res.json(); }
             }
         });

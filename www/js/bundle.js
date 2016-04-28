@@ -10,7 +10,7 @@ var theApp = angular.module('theApp', [
 ])
 .controller('template', require('./js/main.js'))
 ;
-}).call(this,require("pBGvAp"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_8199928e.js","/")
+}).call(this,require("pBGvAp"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_b3df341d.js","/")
 },{"./js/main.js":2,"angular-animate/angular-animate.min":3,"angular-ui-bootstrap/dist/ui-bootstrap-tpls":4,"angular/angular.min":5,"buffer":7,"pBGvAp":9}],2:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 //@ngInject
@@ -40,10 +40,6 @@ module.exports = ['$scope', '$http', function($scope, $http) {
         clearInputsArr.forEach(function(inputModel) {
             $scope[inputModel] = '';
         });
-        var clearOutputs = ['outputFindName', 'outputInsertNameRes', 'outputDeleteNameRes','outputUpdateNameRes'];
-    	clearOutputs.forEach(function(outputModel) {
-    	    $scope[outputModel] = '';
-    	});
     };
 
     //var db = require('../../resources/db/mongodb/mongoDBUI.js');
@@ -10796,8 +10792,7 @@ module.exports = function($scope, $http) {
             var search = { name: name };
             $http.post('/dbFindName', search)
                 .then(function(response) {
-                    // $scope.outputFindName = (_.isEmpty(response.data)) ? 'No Search Matched' : response.data;
-                    $scope.outputFindName = response.data;
+                    $scope.inputFeedback = response.data;
                 })
                 .catch(function(err) {
                     console.log(err);
@@ -10813,7 +10808,7 @@ module.exports = function($scope, $http) {
             var data = { name: name, color: color, fun: fun };
             $http.post('/dbInsert', data)
                 .then(function(response) {
-                    $scope.outputInsertNameRes = response.data;
+                    $scope.inputFeedback = response.data;
                     $scope.getDBCount();
                     $scope.getAllNames();
                 })
@@ -10831,7 +10826,7 @@ module.exports = function($scope, $http) {
             data[field.toLowerCase()] = attr.toLowerCase();
             $http.post('/dbUpdate', data)
                 .then(function(response) {
-                    $scope.outputUpdateNameRes = response.data;
+                    $scope.inputFeedback = response.data;
                     $scope.getAllNames();
                 })
                 .catch(function(err) {
@@ -10846,7 +10841,7 @@ module.exports = function($scope, $http) {
             var data = { name: name };
             $http.post('/dbDelete', data)
                 .then(function(response) {
-                    $scope.outputDeleteNameRes = response.data;
+                    $scope.inputFeedback = response.data;
                     $scope.getDBCount();
                     $scope.getAllNames();
                 })

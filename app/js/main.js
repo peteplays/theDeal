@@ -25,10 +25,6 @@ module.exports = ['$scope', '$http', function($scope, $http) {
         clearInputsArr.forEach(function(inputModel) {
             $scope[inputModel] = '';
         });
-        var clearOutputs = ['outputFindName', 'outputInsertNameRes', 'outputDeleteNameRes','outputUpdateNameRes'];
-    	clearOutputs.forEach(function(outputModel) {
-    	    $scope[outputModel] = '';
-    	});
     };
 
     //var db = require('../../resources/db/mongodb/mongoDBUI.js');
