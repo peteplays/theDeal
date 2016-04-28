@@ -52,10 +52,12 @@ module.exports = function($scope, $http) {
         }
     };
 
-    $scope.postInsertName = function(name) {
-        if(name) {
+    $scope.postInsertName = function(name, color, fun) {
+        if(name && color && fun) {
             name = name.toLowerCase();
-            var data = { name: name };
+            color = color.toLowerCase();
+            fun = fun.toLowerCase();
+            var data = { name: name, color: color, fun: fun };
             $http.post('/dbInsert', data)
                 .then(function(response) {
                     $scope.outputInsertNameRes = response.data;
@@ -69,7 +71,7 @@ module.exports = function($scope, $http) {
     };
 
     $scope.postUpdateVal = function(name, field, attr) {
-        if(name) {
+        if(name && field && attr) {
             name = name.toLowerCase();
             var data = {};
             data.name = name;
