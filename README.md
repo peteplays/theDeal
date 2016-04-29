@@ -61,9 +61,6 @@ images are in `resources/images/`
 
 ## File Structure
 ```
-├── gulpfile.js
-├── package.js
-├── server.js
 ├── app
 |   ├── css
 |   |    └── main.less
@@ -89,6 +86,10 @@ images are in `resources/images/`
 |   |    ├──  bundle.js
 |   |    └── bundle.min.js
 |   └── index.html
+├── gulpfile.js
+├── package.json
+├── README.md
+├── server.js
 └──-------------------------------------
 ```
 
