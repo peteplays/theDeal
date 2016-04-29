@@ -12,7 +12,9 @@ var gulp        = require('gulp'),
 gulp.task('css', function() {
   return gulp.src('app/app.less')
     .pipe(less())
-    .pipe(prefix({ cascade: true }))
+    .pipe(prefix({
+      cascade: true
+    }))
     .pipe(rename('bundle.css'))
     .pipe(gulp.dest('www/css'))
     .pipe(browserSync.stream());

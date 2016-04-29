@@ -33,10 +33,10 @@ input{
 		text-align: left;
 	}
 }
-.plays-input-group{
-	display: inline;
-	width: 120px;
-	margin-left: -3px;
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus{
+    outline: none;
 }
 .capitalize{
     text-transform: capitalize;
@@ -46,20 +46,15 @@ input{
 		cursor: default;
 	}
 }
-.db-record-count{
-	height: 45px;
-	background-color: @bg-blue-opacity;
-	border: 1px solid darken(@bg-blue-opacity, 20%);
-	border-radius: 3px;
-	padding: 10px;
-	width: 50%;
-    margin: 0 auto 16px;
-    text-align: center;
-}
 .well{
-  	background-color: @bg-blue-opacity;
-  	border: 1px solid darken(@bg-blue-opacity, 20%);
-  	color: @yellow-font;
+    background-color: @bg-blue-opacity;
+    border: 1px solid darken(@bg-blue-opacity, 20%);
+    color: @yellow-font;
+}
+.plays-input-group{
+    display: inline;
+    width: 120px;
+    margin-left: -3px;
 }
 .the-icons{
 	font-size: 40px;
@@ -68,6 +63,16 @@ input{
 }
 .helloABS{
  	margin-bottom: 20px;
+}
+.db-record-count{
+    height: 45px;
+    background-color: @bg-blue-opacity;
+    border: 1px solid darken(@bg-blue-opacity, 20%);
+    border-radius: 3px;
+    padding: 10px;
+    width: 50%;
+    margin: 0 auto 16px;
+    text-align: center;
 }
 .db-list{
  	margin-bottom: 15px;
