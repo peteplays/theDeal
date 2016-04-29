@@ -89,7 +89,7 @@ images are in `resources/images/`
 |   |    ├──  bundle.js
 |   |    └── bundle.min.js
 |   └── index.html
-└──
+└──-------------------------------------
 ```
 
 
