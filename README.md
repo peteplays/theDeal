@@ -89,8 +89,7 @@ images are in `resources/images/`
 ├── gulpfile.js
 ├── package.json
 ├── README.md
-├── server.js
-└──
+└── server.js
 ```
 
 
