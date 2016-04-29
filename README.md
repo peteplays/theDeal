@@ -3,6 +3,8 @@
 ## Install
 Clone repo
 
+enter `cd theDeal`
+
 `npm i`
 
 `gulp build`
@@ -19,7 +21,8 @@ This will open a browser window with live reloads
 Severed at `http://localhost:5555`
 
 ### With live loads
-*WIP*
+** *WIP* **
+
 `gulp`
 
 Severed at `http://localhost:7777`
@@ -50,11 +53,11 @@ This will open a browser window with live reloads
 
 edit files in `app` -> `js` and `css` they will be bundled into `www`
 
-add resources in `resources`
+add resources in `resources/`
 
 images are in `resources/images/`
 
-### CouchDB
+## CouchDB
 Start couchdb
 
 #### Auto db create and add data
@@ -62,7 +65,7 @@ This will create a db name `deal` in couchdb
 
 Then it will add 3 records to `deal`
 
-Navigate to this project folder in terminal and run `createDBandData.js`
+Navigate to this project folder `couchdb` in terminal and run `createDBandData.js`
 
 - Run `cd resources/db/couchdb`
 
@@ -73,7 +76,7 @@ The following three records will be added to `deal`
 To setup the views refer to `couchDBConnection.js`
 
 #### Enter data manually
-Create db in couchdb
+Create db in couchdb `deal`
 
 insert the following objects into couchdb
 
