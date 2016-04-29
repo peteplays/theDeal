@@ -1,4 +1,3 @@
-var _ = require('underscore');
 module.exports = function($scope, $http) {
 
     $scope.getDBCheck = function() {
@@ -43,7 +42,6 @@ module.exports = function($scope, $http) {
             var data = { name: name };
             $http.post('/dbFindName', data)
                 .then(function(response) {
-                    // $scope.outputFindName = (_.isEmpty(response.data)) ? 'No Search Matched' : response.data;
                     $scope.inputFeedback = response.data;
                 })
                 .catch(function(err) {
@@ -70,6 +68,22 @@ module.exports = function($scope, $http) {
         }
      };
 
+     $scope.postDeleteName = function(name) {
+        if(name) {
+            name = name.toLowerCase();
+            var data = { name: name };
+            $http.post('/dbDelete', data)
+                .then(function(response) {
+                    $scope.inputFeedback = response.data;
+                    $scope.getDBCount();
+                    $scope.getAllNames();
+                })
+                .catch(function(err) {
+                    console.log(err);
+                });
+        }
+    };
+
     $scope.postUpdateVal = function(name, field, attr) {
         if(name && field && attr) {
             name = name.toLowerCase();
@@ -79,22 +93,6 @@ module.exports = function($scope, $http) {
             $http.post('/dbUpdate', data)
                 .then(function(response) {
                     $scope.inputFeedback = response.data;
-                    $scope.getAllNames();
-                })
-                .catch(function(err) {
-                    console.log(err);
-                });
-        }
-    };
-
-    $scope.postDeleteName = function(name) {
-        if(name) {
-            name = name.toLowerCase();
-            var data = { name: name };
-            $http.post('/dbDelete', data)
-                .then(function(response) {
-                    $scope.inputFeedback = response.data;
-                    $scope.getDBCount();
                     $scope.getAllNames();
                 })
                 .catch(function(err) {
