@@ -108,8 +108,6 @@ Navigate to this project folder `mongodb` in terminal and run `createDBandData.j
 
 The following three records will be added to `deal`
 
-To setup the views refer to `couchDBConnection.js`
-
 #### Enter data manually
 Create db in mongodb `deal`
 

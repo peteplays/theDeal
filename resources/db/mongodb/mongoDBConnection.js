@@ -1,8 +1,8 @@
 var MongoClient = require('mongodb').MongoClient,
     _           = require('underscore'),
     mongoUrl    = 'mongodb://localhost:27017/',
-    db          = 'myproject',
-    collection  = 'documents';
+    db          = 'deal',
+    collection  = 'docs';
 
 module.exports = function(app) {
 
