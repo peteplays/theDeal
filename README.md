@@ -61,33 +61,33 @@ images are in `resources/images/`
 
 ## File Structure
 ```
-+-- gulpfile.js
-+-- package.js
-+-- server.js
+-- gulpfile.js
+-- package.js
+-- server.js
 +-- app
 |   +-- css
-|   |    +-- main.less
+|   |    -- main.less
 |   +-- js
-|   |    +-- main.js
+|   |    -- main.js
 |   +-- app.js
 |   +-- app.less
 +-- resources
 |   +-- db
 |   |   +-- couchdb
-|   |   |    +-- couchDBConnection.js
-|   |   |    +-- couchDBUI.js
-|   |   |    +-- createDBandData.js
+|   |   |    -- couchDBConnection.js
+|   |   |    -- couchDBUI.js
+|   |   |    -- createDBandData.js
 |   +-- images
-|   |    +-- favicon.ico
-|   |    +-- petelogo.png
+|   |    -- favicon.ico
+|   |    -- petelogo.png
 |   +-- templateConnection.js
 +-- www
 |   +-- css
-|   |    +-- bundle.css
-|   |    +-- bundle.min.css
+|   |    -- bundle.css
+|   |    -- bundle.min.css
 |   +-- js
-|   |    +-- bundle.js
-|   |    +-- bundle.min.js
+|   |    -- bundle.js
+|   |    -- bundle.min.js
 |   +-- index.html
 ```
 
