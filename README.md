@@ -61,16 +61,16 @@ images are in `resources/images/`
 
 ## File Structure
 ```
--- gulpfile.js
--- package.js
--- server.js
+├── gulpfile.js
+├── package.js
+├── server.js
 ├── app
 |   ├── css
 |   |    -- main.less
 |   ├── js
 |   |    -- main.js
-|   -- app.js
-|   -- app.less
+|   ├──  app.js
+|   └──app.less
 ├── resources
 |   ├── db
 |   |   ├── couchdb
@@ -78,17 +78,17 @@ images are in `resources/images/`
 |   |   |    -- couchDBUI.js
 |   |   |    -- createDBandData.js
 |   ├── images
-|   |    -- favicon.ico
-|   |    -- petelogo.png
-|   -- templateConnection.js
+|   |    ├──  favicon.ico
+|   |    └── petelogo.png
+|   └── templateConnection.js
 ├── www
 |   ├── css
-|   |    -- bundle.css
-|   |    -- bundle.min.css
+|   |    ├──  bundle.css
+|   |    └── bundle.min.css
 |   ├── js
-|   |    -- bundle.js
+|   |    ├──  bundle.js
 |   |    -- bundle.min.js
-|   -- index.html
+|   └── index.html
 ```
 
 
