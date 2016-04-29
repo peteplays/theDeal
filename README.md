@@ -44,30 +44,30 @@ This will open a browser window with live reloads
 
 ## File Structure
 ```
-├── app/
-|   ├── css/
-|   |    └── main.less
-|   ├── js/
-|   |    └── main.js
+├───┬ app/
+|   ├───┬ css/
+|   |   └── main.less
+|   ├───┬ js/
+|   |   └── main.js
 |   ├── app.js
 |   └── app.less
-├── resources/
-|   ├── db/
-|   |   ├── mongodb/
-|   |   |    ├── mongoDBConnection.js
-|   |   |    └── mongoDBUI.js
+├───┬ resources/
+|   ├───┬ db/
+|   |   ├───┬ mongodb/
+|   |   |   ├── mongoDBConnection.js
+|   |   |   └── mongoDBUI.js
 |   |   └── templateConnection.js
-|   ├── images/
-|   |    ├── favicon.ico
-|   |    └── petelogo.png
+|   ├───┬ images/
+|   |   ├── favicon.ico
+|   |   └── petelogo.png
 |   └── templateConnection.js
-├── www/
-|   ├── css/
-|   |    ├── bundle.css
-|   |    └── bundle.min.css
-|   ├── js/
-|   |    ├── bundle.js
-|   |    └── bundle.min.js
+├───┬ www/
+|   ├───┬ css/
+|   |   ├── bundle.css
+|   |   └── bundle.min.css
+|   ├───┬ js/
+|   |   ├── bundle.js
+|   |   └── bundle.min.js
 |   └── index.html
 ├── gulpfile.js
 ├── package.json
