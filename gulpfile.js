@@ -41,7 +41,7 @@ gulp.task('bs-icons', function() { 
 //-- minify css and uglify js
 gulp.task('minify', ['css'], function() {
   return gulp.src('www/css/bundle.css')
-    .pipe(minifyCSS())
+    .pipe(minifyCSS({processImport: false}))
     .pipe(rename('bundle.min.css'))
     .pipe(gulp.dest('www/css'));
 });
