@@ -58,15 +58,15 @@ This will open a browser window with live reloads
 |   |   |    └── mongoDBUI.js
 |   |   └── templateConnection.js
 |   ├── images/
-|   |    ├──  favicon.ico
+|   |    ├── favicon.ico
 |   |    └── petelogo.png
 |   └── templateConnection.js
 ├── www/
 |   ├── css/
-|   |    ├──  bundle.css
+|   |    ├── bundle.css
 |   |    └── bundle.min.css
 |   ├── js/
-|   |    ├──  bundle.js
+|   |    ├── bundle.js
 |   |    └── bundle.min.js
 |   └── index.html
 ├── gulpfile.js
