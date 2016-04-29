@@ -43,7 +43,7 @@ This will open a browser window with live reloads
 - font-awesome
 
 ## Usage
-`gulp build` will build `bundled.css` and `bundled.js`, `bundled.min.css` and `bundled.min.js`, & add the bootstrap and font awesome icons to `fonts/` (_run this first_)
+`gulp build` will build `bundled.css` and `bundled.js`, `bundled.min.css` and `bundled.min.js`, _&_ add the bootstrap and font awesome icons to `fonts/` (_run this first_)
 
 `gulp` or `gulp no-db` will build your `bundled.css` and `bundled.js` in `www/` -> `css/` and `js/` and run live reloads
 
@@ -58,6 +58,39 @@ edit `index.html` in `www/`
 add resources in `resources/`
 
 images are in `resources/images/`
+
+## File Structure
+```
++-- gulpfile.js
++-- package.js
++-- server.js
++-- app
+|   +-- css
+|   |    +-- main.less
+|   +-- js
+|   |    +-- main.js
+|   +-- app.js
+|   +-- app.less
++-- resources
+|   +-- db
+|   |   +-- couchdb
+|   |   |    +-- couchDBConnection.js
+|   |   |    +-- couchDBUI.js
+|   |   |    +-- createDBandData.js
+|   +-- images
+|   |    +-- favicon.ico
+|   |    +-- petelogo.png
+|   +-- templateConnection.js
++-- www
+|   +-- css
+|   |    +-- bundle.css
+|   |    +-- bundle.min.css
+|   +-- js
+|   |    +-- bundle.js
+|   |    +-- bundle.min.js
+|   +-- index.html
+```
+
 
 ## CouchDB
 Start couchdb
