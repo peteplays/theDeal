@@ -90,7 +90,7 @@ images are in `resources/images/`
 ├── package.json
 ├── README.md
 ├── server.js
-└──-------------------------------------
+└──
 ```
 
 
