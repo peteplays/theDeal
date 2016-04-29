@@ -1,4 +1,5 @@
 var MongoClient = require('mongodb').MongoClient,
+    _           = require('underscore'),
     mongoUrl    = 'mongodb://localhost:27017/',
     db          = 'myproject',
     collection  = 'documents';
@@ -20,10 +21,7 @@ module.exports = function(app) {
         MongoClient.connect(mongoUrl+db, function(err, db) {
             if (err) { console.log(err); return; }
             db.collection(collection).find().toArray(function(err, result) {
-                if (err) {
-                    console.log(err);
-                    throw err;
-                }
+                if (err) { console.log(err); return; }
                 res.json(result);
                 db.close();
             });
@@ -55,8 +53,7 @@ module.exports = function(app) {
     });
 
     app.post('/dbInsert', function(req,res) {
-        var insertData = JSON.parse('{"name": "'+req.body.name+'", "color": "orange", "fun": "yes"}');
-
+        var insertData = JSON.parse('{"name": "'+req.body.name+'", "color": "'+req.body.color+'", "fun": "'+req.body.fun+'"}');
         MongoClient.connect(mongoUrl+db, function(err, db) {
             if (err) { console.log(err); return; }
             db.collection(collection).insert(insertData, function(err, result) {
@@ -69,7 +66,7 @@ module.exports = function(app) {
 
     app.post('/dbUpdate', function(req,res) {
         var findName    = JSON.parse('{"name": "'+req.body.name+'"}');
-            updateData  = JSON.parse('{"$set":{"color":"'+req.body.color+'"}}');
+            updateData  = JSON.parse('{"$set":{"'+_.keys(req.body)[1]+'":"'+_.values(req.body)[1]+'"}}');
 
         MongoClient.connect(mongoUrl+db, function(err, db) {
             if (err) { console.log(err); return; }

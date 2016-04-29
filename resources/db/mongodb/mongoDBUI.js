@@ -28,7 +28,6 @@ module.exports = function($scope, $http) {
     };
 
     $scope.getDBCount = function() {
-        name = name.toLowerCase();
         $http.get('/dbCount')
             .then(function(response) {
                 $scope.outputDBCountRes = response.data;
@@ -41,12 +40,11 @@ module.exports = function($scope, $http) {
     $scope.postFindName = function(name) {
         if(name) {
             name = name.toLowerCase();
-            var data = {
-                name: name
-            };
+            var data = { name: name };
             $http.post('/dbFindName', data)
                 .then(function(response) {
-                    $scope.outputFindName = (_.isEmpty(response.data)) ? 'No Search Matched' : response.data;
+                    // $scope.outputFindName = (_.isEmpty(response.data)) ? 'No Search Matched' : response.data;
+                    $scope.inputFeedback = response.data;
                 })
                 .catch(function(err) {
                     console.log(err);
@@ -54,15 +52,15 @@ module.exports = function($scope, $http) {
         }
     };
 
-  $scope.postInsertName = function(name) {
-        if(name) {
+  $scope.postInsertName = function(name, color, fun) {
+        if(name && color && fun) {
             name = name.toLowerCase();
-            var data = {
-                name: name
-            };
+            color = color.toLowerCase();
+            fun = fun.toLowerCase();
+            var data = { name: name, color: color, fun: fun };
             $http.post('/dbInsert', data)
                 .then(function(response) {
-                    $scope.outputInsertNameRes = response.data;
+                    $scope.inputFeedback = response.data;
                     $scope.getDBCount();
                     $scope.getAllNames();
                 })
@@ -72,16 +70,15 @@ module.exports = function($scope, $http) {
         }
      };
 
-    $scope.postUpdateVal = function(name, color) {
-        if(name) {
+    $scope.postUpdateVal = function(name, field, attr) {
+        if(name && field && attr) {
             name = name.toLowerCase();
-            var data = {
-                name: name,
-                color: color
-            };
+            var data = {};
+            data.name = name;
+            data[field.toLowerCase()] = attr.toLowerCase();
             $http.post('/dbUpdate', data)
                 .then(function(response) {
-                    $scope.outputUpdateNameRes = response.data;
+                    $scope.inputFeedback = response.data;
                     $scope.getAllNames();
                 })
                 .catch(function(err) {
@@ -93,12 +90,10 @@ module.exports = function($scope, $http) {
     $scope.postDeleteName = function(name) {
         if(name) {
             name = name.toLowerCase();
-            var data = {
-                name: name
-            };
+            var data = { name: name };
             $http.post('/dbDelete', data)
                 .then(function(response) {
-                    $scope.outputDeleteNameRes = response.data;
+                    $scope.inputFeedback = response.data;
                     $scope.getDBCount();
                     $scope.getAllNames();
                 })
