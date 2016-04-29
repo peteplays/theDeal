@@ -61,32 +61,32 @@ images are in `resources/images/`
 
 ## File Structure
 ```
-├── app
-|   ├── css
+├── app/
+|   ├── css/
 |   |    └── main.less
-|   ├── js
+|   ├── js/
 |   |    └── main.js
-|   ├──  app.js
-|   └──app.less
-├── resources
-|   ├── db
-|   |   ├── couchdb
+|   ├── app.js
+|   └── app.less
+├── resources/
+|   ├── db/
+|   |   ├── couchdb/
 |   |   |    ├── couchDBConnection.js
 |   |   |    ├── couchDBUI.js
 |   |   |    └── createDBandData.js
-|   |   ├── mongodb
+|   |   ├── mongodb/
 |   |   |    ├── mongoDBConnection.js
 |   |   |    └── mongoDBUI.js
 |   |   └── templateConnection.js
-|   ├── images
+|   ├── images/
 |   |    ├──  favicon.ico
 |   |    └── petelogo.png
 |   └── templateConnection.js
-├── www
-|   ├── css
+├── www/
+|   ├── css/
 |   |    ├──  bundle.css
 |   |    └── bundle.min.css
-|   ├── js
+|   ├── js/
 |   |    ├──  bundle.js
 |   |    └── bundle.min.js
 |   └── index.html
