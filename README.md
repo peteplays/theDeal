@@ -66,17 +66,17 @@ images are in `resources/images/`
 ├── server.js
 ├── app
 |   ├── css
-|   |    -- main.less
+|   |    └── main.less
 |   ├── js
-|   |    -- main.js
+|   |    └── main.js
 |   ├──  app.js
 |   └──app.less
 ├── resources
 |   ├── db
 |   |   ├── couchdb
-|   |   |    -- couchDBConnection.js
-|   |   |    -- couchDBUI.js
-|   |   |    -- createDBandData.js
+|   |   |    ├── couchDBConnection.js
+|   |   |    ├── couchDBUI.js
+|   |   |    └── createDBandData.js
 |   ├── images
 |   |    ├──  favicon.ico
 |   |    └── petelogo.png
@@ -87,8 +87,9 @@ images are in `resources/images/`
 |   |    └── bundle.min.css
 |   ├── js
 |   |    ├──  bundle.js
-|   |    -- bundle.min.js
+|   |    └── bundle.min.js
 |   └── index.html
+└──
 ```
 
 
