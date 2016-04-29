@@ -64,28 +64,28 @@ images are in `resources/images/`
 -- gulpfile.js
 -- package.js
 -- server.js
-├──  app
-|   ├──  css
+├── app
+|   ├── css
 |   |    -- main.less
-|   ├──  js
+|   ├── js
 |   |    -- main.js
 |   -- app.js
 |   -- app.less
-├──  resources
-|   ├──  db
-|   |   ├──  couchdb
+├── resources
+|   ├── db
+|   |   ├── couchdb
 |   |   |    -- couchDBConnection.js
 |   |   |    -- couchDBUI.js
 |   |   |    -- createDBandData.js
-|   ├──  images
+|   ├── images
 |   |    -- favicon.ico
 |   |    -- petelogo.png
 |   -- templateConnection.js
-├──  www
-|   ├──  css
+├── www
+|   ├── css
 |   |    -- bundle.css
 |   |    -- bundle.min.css
-|   ├──  js
+|   ├── js
 |   |    -- bundle.js
 |   |    -- bundle.min.js
 |   -- index.html
