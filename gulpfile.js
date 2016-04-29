@@ -5,7 +5,8 @@ var gulp        = require('gulp'),
     less        = require('gulp-less'),
     prefix      = require('gulp-autoprefixer'),
     minifyCSS   = require('gulp-minify-css'),
-    browserSync = require('browser-sync').create();
+    browserSync = require('browser-sync').create(),
+    PORT        = 7777;
 
 //-- build css and js
 gulp.task('css', function() {
@@ -41,7 +42,9 @@ gulp.task('bs-icons', function() { 
 //-- minify css and uglify js
 gulp.task('minify', ['css'], function() {
   return gulp.src('www/css/bundle.css')
-    .pipe(minifyCSS({processImport: false}))
+    .pipe(minifyCSS({
+      processImport: false
+    }))
     .pipe(rename('bundle.min.css'))
     .pipe(gulp.dest('www/css'));
 });
@@ -56,7 +59,7 @@ gulp.task('uglify', ['js'], function() {
 //-- live reloading
 gulp.task('live-reload', function() {
   browserSync.init({
-    port: 7777,
+    port: PORT,
     server: {
       baseDir: ['www', 'resources']
     }
