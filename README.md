@@ -43,15 +43,15 @@ This will open a browser window with live reloads
 - font-awesome
 
 ## Usage
-`gulp build` will build `bundled.css` and `bundled.js`, `bundled.min.css` and `bundled.min.js`, & add the bootstrap and font awesome icons to `fonts` (_run this first_)
+`gulp build` will build `bundled.css` and `bundled.js`, `bundled.min.css` and `bundled.min.js`, & add the bootstrap and font awesome icons to `fonts/` (_run this first_)
 
-`gulp` or `gulp no-db` will build your `bundled.css` and `bundled.js` in `www` -> `css` and `js` and run live reloads
+`gulp` or `gulp no-db` will build your `bundled.css` and `bundled.js` in `www/` -> `css/` and `js/` and run live reloads
 
-`npm start` or `gulp local` will build your `bundled.css` and `bundled.js` -> `css` and `js`
+`npm start` or `gulp local` will build your `bundled.css` and `bundled.js` -> `css/` and `js/`
 
 `gulp` or `npm start` with couchdb running will give you access to the couchdb
 
-edit files in `app` -> `js` and `css` they will be bundled into `www`
+edit files in `app/` -> `js/` and `css/` they will be bundled into `www/`
 
 edit `index.html` in `www/`
 
