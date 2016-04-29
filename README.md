@@ -74,6 +74,10 @@ images are in `resources/images/`
 |   |   |    ├── couchDBConnection.js
 |   |   |    ├── couchDBUI.js
 |   |   |    └── createDBandData.js
+|   |   ├── mongodb
+|   |   |    ├── mongoDBConnection.js
+|   |   |    └── mongoDBUI.js
+|   |   └── templateConnection.js
 |   ├── images
 |   |    ├──  favicon.ico
 |   |    └── petelogo.png
