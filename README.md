@@ -3,7 +3,7 @@
 ## Install
 Clone repo
 
-enter `cd theDeal`
+`cd theDeal`
 
 `npm i`
 
@@ -21,7 +21,7 @@ This will open a browser window with live reloads
 Severed at `http://localhost:5555`
 
 ### With live loads
-** *WIP* **
+** _WIP_ **
 
 `gulp`
 
@@ -45,13 +45,15 @@ This will open a browser window with live reloads
 ## Usage
 `gulp build` will build `bundled.css` and `bundled.js`, `bundled.min.css` and `bundled.min.js`, & add the bootstrap and font awesome icons to `fonts` (_run this first_)
 
-`gulp` will build your `bundled.css` and `bundled.js` in `www` -> `css` and `js` and run live reloads
+`gulp` or `gulp no-db` will build your `bundled.css` and `bundled.js` in `www` -> `css` and `js` and run live reloads
 
 `npm start` or `gulp local` will build your `bundled.css` and `bundled.js` -> `css` and `js`
 
-`npm start` with mongo running will give you access to the mongo
+`gulp` or `npm start` with couchdb running will give you access to the couchdb
 
 edit files in `app` -> `js` and `css` they will be bundled into `www`
+
+edit `index.html` in `www/`
 
 add resources in `resources/`
 
@@ -67,9 +69,9 @@ Then it will add 3 records to `deal`
 
 Navigate to this project folder `couchdb` in terminal and run `createDBandData.js`
 
-- Run `cd resources/db/couchdb`
+- `cd resources/db/couchdb/`
 
-- Run `node createDBandData.js`
+- `node createDBandData.js`
 
 The following three records will be added to `deal`
 
