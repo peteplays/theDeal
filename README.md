@@ -8,14 +8,23 @@ Clone repo
 `gulp build`
 
 ## Develop Locally without DB Access
-`gulp`
+`gulp no-db`
 
 This will open a browser window with live reloads
 
 ## Develop Locally with DB Access
+### Without live loads
 `npm start`
 
 Severed at `http://localhost:5555`
+
+### With live loads
+*WIP*
+`gulp`
+
+Severed at `http://localhost:7777`
+
+This will open a browser window with live reloads
 
 ## Components
 - express
@@ -24,7 +33,7 @@ Severed at `http://localhost:5555`
 
 - browserify
 
-- mongo
+- couchdb
 
 - angular-ui-bootstrap
 
@@ -45,10 +54,28 @@ add resources in `resources`
 
 images are in `resources/images/`
 
-### Mongo
-Start mongo
+### CouchDB
+Start couchdb
 
-insert the following objects into mongo
+#### Auto db create and add data
+This will create a db name `deal` in couchdb
+
+Then it will add 3 records to `deal`
+
+Navigate to this project folder in terminal and run `createDBandData.js`
+
+- Run `cd resources/db/couchdb`
+
+- Run `node createDBandData.js`
+
+The following three records will be added to `deal`
+
+To setup the views refer to `couchDBConnection.js`
+
+#### Enter data manually
+Create db in couchdb
+
+insert the following objects into couchdb
 
 `{
     "name" : "pete",
@@ -68,5 +95,4 @@ insert the following objects into mongo
     "fun" : "no"
 }`
 
-Run `npm start`
 
