@@ -5,13 +5,18 @@ var gulp        = require('gulp'),
     less        = require('gulp-less'),
     prefix      = require('gulp-autoprefixer'),
     minifyCSS   = require('gulp-minify-css'),
-    browserSync = require('browser-sync').create();
+    browserSync = require('browser-sync').create(),
+    reload      = browserSync.reload,
+    nodemon     = require('gulp-nodemon'),
+    PORT        = 7777;
 
 //-- build css and js
 gulp.task('css', function() {
   return gulp.src('app/app.less')
     .pipe(less())
-    .pipe(prefix({ cascade: true }))
+    .pipe(prefix({
+      cascade: true
+    }))
     .pipe(rename('bundle.css'))
     .pipe(gulp.dest('www/css'))
     .pipe(browserSync.stream());
@@ -41,7 +46,9 @@ gulp.task('bs-icons', function() { 
 //-- minify css and uglify js
 gulp.task('minify', ['css'], function() {
   return gulp.src('www/css/bundle.css')
-    .pipe(minifyCSS({processImport: false}))
+    .pipe(minifyCSS({
+      processImport: false
+    }))
     .pipe(rename('bundle.min.css'))
     .pipe(gulp.dest('www/css'));
 });
@@ -56,20 +63,52 @@ gulp.task('uglify', ['js'], function() {
 //-- live reloading
 gulp.task('live-reload', function() {
   browserSync.init({
-    port: 7777,
+    port: PORT,
     server: {
-      baseDir: ['www', 'resources']
+      baseDir: ['www/**/*.*', 'resources/**/*.*', 'resources/**/**/*.*']
     }
   });
-  gulp.watch("app/css/*.less", ['css']);
-  gulp.watch("app/js/*.js", ['reload-js']);
-  gulp.watch("www/*.html").on('change', browserSync.reload);
+  gulp.watch('app/css/*.less', ['css']);
+  gulp.watch('app/js/*.js', ['reload-js']);
+  gulp.watch('www/*.html').on('change', reload);
 });
 
-gulp.task('reload-js', ['js'], browserSync.reload);
+//-- live reloading with DB access
+gulp.task('live-reload-with-db', ['nodemon'], function() {
+  browserSync.init(null, {
+    proxy: 'http://localhost:5555',
+    files: ['www/**/*.*', 'resources/**/*.*', 'resources/**/**/*.*'],
+    browser: "google chrome",
+    port: PORT,
+  });
+  gulp.watch('app/css/*.less', ['css']);
+  gulp.watch('app/js/*.js', ['reload-js']);
+  gulp.watch('www/*.html').on('change', reload);
+});
+
+gulp.task('reload-js', ['js'], reload);
+
+gulp.task('nodemon', function(cb) {
+  var started = false;
+  return nodemon({
+    script: 'server.js'
+  })
+  .on('start', function () {
+    if (!started) {
+      started = true;
+      cb();
+    }
+  })
+  .on('restart', function () {
+    setTimeout(function () {
+      reload({ stream: false });
+    }, 1000);
+  });
+});
 
 //-- run tasks
-gulp.task('default', ['js', 'css', 'live-reload']);
+gulp.task('default', ['js', 'css', 'live-reload-with-db']);
+gulp.task('no-db', ['js', 'css', 'live-reload']);
 gulp.task('local', ['js', 'css']);
 gulp.task('build', ['uglify', 'fa-icons', 'bs-icons', 'minify']);
 
