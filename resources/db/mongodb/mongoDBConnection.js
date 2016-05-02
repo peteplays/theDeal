@@ -4,6 +4,14 @@ var MongoClient = require('mongodb').MongoClient,
     db          = 'deal',
     collection  = 'docs';
 
+if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
+    mongoUrl = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
+    process.env.OPENSHIFT_MONGODB_DB_PASSWORD + "@" +
+    process.env.OPENSHIFT_MONGODB_DB_HOST + ':' +
+    process.env.OPENSHIFT_MONGODB_DB_PORT + '/' +
+    process.env.OPENSHIFT_APP_NAME;
+}
+
 module.exports = function(app) {
 
     app.get('/dbCheck', function(req,res) {
@@ -47,9 +55,9 @@ module.exports = function(app) {
                 if(err) { console.log(err); return; }
                 if(_.isEmpty(result)) {
                     res.send('`'+req.body.name+'` not in DB');
-                } else { 
-                    res.json(_.omit(result[0], '_id')); 
-                }                
+                } else {
+                    res.json(_.omit(result[0], '_id'));
+                }
                 db.close();
             });
         });
@@ -77,7 +85,7 @@ module.exports = function(app) {
                      res.send('`'+req.body.name+'` not in DB');
                 } else {
                      res.send('`'+req.body.name+'` was deleted');
-                }               
+                }
                 db.close();
             });
         });
