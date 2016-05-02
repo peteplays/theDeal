@@ -13,7 +13,7 @@
     "font-awesome"
   ],
   "scripts": {
-    "prestart": "gulp local",
+    "prestart": "gulp build",
     "start": "node server.js"
   },
   "repository": {
