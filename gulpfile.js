@@ -4,7 +4,7 @@ var gulp        = require('gulp'),
     uglify      = require('gulp-uglify'),
     less        = require('gulp-less'),
     prefix      = require('gulp-autoprefixer'),
-    minifyCSS   = require('gulp-minify-css'),
+    minifyCSS   = require('gulp-clean-css'),
     browserSync = require('browser-sync').create();
 
 //-- build css and js
